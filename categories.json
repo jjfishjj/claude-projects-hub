@@ -10,10 +10,12 @@
     "nemoclaw-arduino-robot-arm":     { "cat": "NVIDIA / GPU" },
     "nvidia-dev-pipeline-demo":       { "cat": "NVIDIA / GPU", "desc": "NVIDIA 開發者工具鏈 pipeline 示範" },
     "nvidia-full-stack-lab":          { "cat": "NVIDIA / GPU" },
+    "openshell-agent-security-demo":  { "cat": "NVIDIA / GPU", "desc": "用 NVIDIA OpenShell 核心層沙箱封鎖 AI coding agent，並以稽核日誌證明政策確實生效" },
 
     "openusd-factory-digital-twin":   { "cat": "數位孿生 / Omniverse" },
     "omniverse-ops-starter":          { "cat": "數位孿生 / Omniverse", "desc": "Omniverse 場域維運起始範本：USD 圖層、Isaac AMR 情境、即時遙測" },
     "flowforge-factory-twin":         { "cat": "數位孿生 / Omniverse" },
+    "fab-digital-twin":               { "cat": "數位孿生 / Omniverse", "desc": "300mm 半導體晶圓廠的參數化 OpenUSD 數位孿生，純 JSON spec 驅動，無需 GPU 或 Omniverse 授權" },
 
     "academic-memory-lab":            { "cat": "AI 產品 Demo" },
     "academic-memory-lab-demo":       { "cat": "AI 產品 Demo" },

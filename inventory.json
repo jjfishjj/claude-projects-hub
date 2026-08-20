@@ -40,6 +40,14 @@
     "pushed_at": "2026-08-20"
   },
   {
+    "name": "fab-digital-twin",
+    "description": "Parametric OpenUSD digital twin of a 300mm semiconductor fab, generated from a JSON spec — no GPU or Omniverse licence required",
+    "repo_url": "https://github.com/jjfishjj/fab-digital-twin",
+    "pages_url": "https://jjfishjj.github.io/fab-digital-twin/",
+    "language": null,
+    "pushed_at": "2026-08-20"
+  },
+  {
     "name": "flowforge-factory-twin",
     "description": "OpenUSD-ready factory digital twin for layout planning, capacity simulation, and Omniverse workflows",
     "repo_url": "https://github.com/jjfishjj/flowforge-factory-twin",
@@ -85,7 +93,7 @@
     "repo_url": "https://github.com/jjfishjj/jjfishjj.github.io",
     "pages_url": "https://jjfishjj.github.io/",
     "language": "HTML",
-    "pushed_at": "2026-08-19"
+    "pushed_at": "2026-08-20"
   },
   {
     "name": "lifegether",
@@ -165,6 +173,14 @@
     "repo_url": "https://github.com/jjfishjj/omniverse-ops-starter",
     "pages_url": "https://jjfishjj.github.io/omniverse-ops-starter/",
     "language": "Python",
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "openshell-agent-security-demo",
+    "description": "Securing an AI coding agent with NVIDIA OpenShell: kernel-level sandbox + declarative YAML policy, with audit-log proof the policy holds",
+    "repo_url": "https://github.com/jjfishjj/openshell-agent-security-demo",
+    "pages_url": "https://jjfishjj.github.io/openshell-agent-security-demo/",
+    "language": null,
     "pushed_at": "2026-08-20"
   },
   {
