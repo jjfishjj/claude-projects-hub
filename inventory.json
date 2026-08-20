@@ -24,6 +24,14 @@
     "pushed_at": "2026-07-14"
   },
   {
+    "name": "claude-projects-hub",
+    "description": "本機 Claude/Codex 專案的 GitHub Pages 部署索引與批次部署工具",
+    "repo_url": "https://github.com/jjfishjj/claude-projects-hub",
+    "pages_url": "https://jjfishjj.github.io/claude-projects-hub/",
+    "language": "HTML",
+    "pushed_at": "2026-08-20"
+  },
+  {
     "name": "cudf-game-analytics-benchmark",
     "description": "Game-ops analytics (RFM/retention/funnel) on 20M events: pandas vs RAPIDS cudf.pandas, zero code change",
     "repo_url": "https://github.com/jjfishjj/cudf-game-analytics-benchmark",
@@ -54,6 +62,14 @@
     "pages_url": "https://jjfishjj.github.io/gpu-power-demo/",
     "language": "Python",
     "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "jeromekuo",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/jeromekuo",
+    "pages_url": "https://jjfishjj.github.io/jeromekuo/",
+    "language": "TypeScript",
+    "pushed_at": "2026-08-18"
   },
   {
     "name": "jetson-edge-ai-proposal",
@@ -310,14 +326,6 @@
     "pages_url": null,
     "language": null,
     "pushed_at": "2024-11-26"
-  },
-  {
-    "name": "jeromekuo",
-    "description": "",
-    "repo_url": "https://github.com/jjfishjj/jeromekuo",
-    "pages_url": null,
-    "language": "TypeScript",
-    "pushed_at": "2026-08-18"
   },
   {
     "name": "nvidia-computex2026-optimizer",

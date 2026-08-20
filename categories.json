@@ -33,6 +33,8 @@
     "relayform":                      { "cat": "工具 / Infra" },
     "zero-ai-connector-hub":          { "cat": "工具 / Infra", "desc": "Zero AI Connector Hub 連接器整合中心" },
 
-    "jjfishjj.github.io":             { "cat": "個人網站", "desc": "Jerome Kuo 個人首頁" }
+    "jjfishjj.github.io":             { "cat": "個人網站", "desc": "Jerome Kuo 個人首頁" },
+    "jeromekuo":                      { "cat": "個人網站", "desc": "Jerome Kuo 互動式線上履歷" },
+    "claude-projects-hub":            { "cat": "工具 / Infra", "desc": "本頁本身：專案盤點與 Pages 批次部署工具" }
   }
 }
