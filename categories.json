@@ -1,0 +1,38 @@
+{
+  "_comment": "repo -> 分類與顯示覆寫。沒列到的 repo 會落到「其他」。desc 可覆寫 GitHub description。",
+  "order": ["NVIDIA / GPU", "數位孿生 / Omniverse", "AI 產品 Demo", "PM / 商業提案", "工具 / Infra", "個人網站", "其他"],
+  "repos": {
+    "cudf-game-analytics-benchmark":  { "cat": "NVIDIA / GPU" },
+    "gpu-power-demo":                 { "cat": "NVIDIA / GPU" },
+    "jetson-edge-ai-proposal":        { "cat": "NVIDIA / GPU" },
+    "nim-inference-cost-analysis":    { "cat": "NVIDIA / GPU" },
+    "nim-rag-language-tutor":         { "cat": "NVIDIA / GPU" },
+    "nemoclaw-arduino-robot-arm":     { "cat": "NVIDIA / GPU" },
+    "nvidia-dev-pipeline-demo":       { "cat": "NVIDIA / GPU", "desc": "NVIDIA 開發者工具鏈 pipeline 示範" },
+    "nvidia-full-stack-lab":          { "cat": "NVIDIA / GPU" },
+
+    "openusd-factory-digital-twin":   { "cat": "數位孿生 / Omniverse" },
+    "omniverse-ops-starter":          { "cat": "數位孿生 / Omniverse", "desc": "Omniverse 場域維運起始範本：USD 圖層、Isaac AMR 情境、即時遙測" },
+    "flowforge-factory-twin":         { "cat": "數位孿生 / Omniverse" },
+
+    "academic-memory-lab":            { "cat": "AI 產品 Demo" },
+    "academic-memory-lab-demo":       { "cat": "AI 產品 Demo" },
+    "fluent-ai":                      { "cat": "AI 產品 Demo", "desc": "語言學習 AI 產品原型" },
+    "memolingua":                     { "cat": "AI 產品 Demo", "desc": "MemoLingua 記憶式語言學習平台" },
+    "lifegether":                     { "cat": "AI 產品 Demo", "desc": "LifeGether 社群活動平台" },
+    "lifegether-demo":                { "cat": "AI 產品 Demo" },
+    "taiji-posture-demo":             { "cat": "AI 產品 Demo" },
+    "papiin-product-demo":            { "cat": "AI 產品 Demo", "desc": "Papiin 產品展示原型" },
+    "tomohire-demo":                  { "cat": "AI 產品 Demo", "desc": "TomoHire 招募產品原型" },
+
+    "liho-tv-strategy-demo":          { "cat": "PM / 商業提案" },
+    "chunshin-learningops-insight":   { "cat": "PM / 商業提案" },
+    "tomoaid-operating-board":        { "cat": "PM / 商業提案" },
+    "software-intake-form":           { "cat": "PM / 商業提案" },
+
+    "relayform":                      { "cat": "工具 / Infra" },
+    "zero-ai-connector-hub":          { "cat": "工具 / Infra", "desc": "Zero AI Connector Hub 連接器整合中心" },
+
+    "jjfishjj.github.io":             { "cat": "個人網站", "desc": "Jerome Kuo 個人首頁" }
+  }
+}

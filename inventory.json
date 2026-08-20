@@ -1,0 +1,354 @@
+[
+  {
+    "name": "academic-memory-lab",
+    "description": "一個專為學院型態學習者設計的互動平台，結合「情境鉤子卡」與「情感故事卡」，將學術知識轉化為具備情感與場景的記憶點。包含學科選擇、場景掛鉤、故事編織與回想測試功能。 · 使用 Manus 建立",
+    "repo_url": "https://github.com/jjfishjj/academic-memory-lab",
+    "pages_url": "https://jjfishjj.github.io/academic-memory-lab/",
+    "language": "TypeScript",
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "academic-memory-lab-demo",
+    "description": "Interactive MemoDesk memory training demo",
+    "repo_url": "https://github.com/jjfishjj/academic-memory-lab-demo",
+    "pages_url": "https://jjfishjj.github.io/academic-memory-lab-demo/",
+    "language": "HTML",
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "chunshin-learningops-insight",
+    "description": "Chun Shin LearningOps Insight demo for data, campus activation, language consulting, and course operations",
+    "repo_url": "https://github.com/jjfishjj/chunshin-learningops-insight",
+    "pages_url": "https://jjfishjj.github.io/chunshin-learningops-insight/",
+    "language": "JavaScript",
+    "pushed_at": "2026-07-14"
+  },
+  {
+    "name": "cudf-game-analytics-benchmark",
+    "description": "Game-ops analytics (RFM/retention/funnel) on 20M events: pandas vs RAPIDS cudf.pandas, zero code change",
+    "repo_url": "https://github.com/jjfishjj/cudf-game-analytics-benchmark",
+    "pages_url": "https://jjfishjj.github.io/cudf-game-analytics-benchmark/",
+    "language": "Jupyter Notebook",
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "flowforge-factory-twin",
+    "description": "OpenUSD-ready factory digital twin for layout planning, capacity simulation, and Omniverse workflows",
+    "repo_url": "https://github.com/jjfishjj/flowforge-factory-twin",
+    "pages_url": "https://jjfishjj.github.io/flowforge-factory-twin/",
+    "language": "HTML",
+    "pushed_at": "2026-08-09"
+  },
+  {
+    "name": "fluent-ai",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/fluent-ai",
+    "pages_url": "https://jjfishjj.github.io/fluent-ai/",
+    "language": "TypeScript",
+    "pushed_at": "2026-08-19"
+  },
+  {
+    "name": "gpu-power-demo",
+    "description": "GPU power reduction techniques: RTL clock gating, INT8/INT4 quantisation, 2:4 sparsity, DVFS — runnable Python + Verilog demos",
+    "repo_url": "https://github.com/jjfishjj/gpu-power-demo",
+    "pages_url": "https://jjfishjj.github.io/gpu-power-demo/",
+    "language": "Python",
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "jetson-edge-ai-proposal",
+    "description": "StoreSense: privacy-first retail footfall analytics on NVIDIA Jetson — product proposal, architecture, phased prototype plan",
+    "repo_url": "https://github.com/jjfishjj/jetson-edge-ai-proposal",
+    "pages_url": "https://jjfishjj.github.io/jetson-edge-ai-proposal/",
+    "language": null,
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "jjfishjj.github.io",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/jjfishjj.github.io",
+    "pages_url": "https://jjfishjj.github.io/",
+    "language": "HTML",
+    "pushed_at": "2026-08-19"
+  },
+  {
+    "name": "lifegether",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/lifegether",
+    "pages_url": "https://jjfishjj.github.io/lifegether/",
+    "language": "HTML",
+    "pushed_at": "2026-07-20"
+  },
+  {
+    "name": "lifegether-demo",
+    "description": "LifeGether responsive community event platform demo",
+    "repo_url": "https://github.com/jjfishjj/lifegether-demo",
+    "pages_url": "https://jjfishjj.github.io/lifegether-demo/",
+    "language": "JavaScript",
+    "pushed_at": "2026-07-21"
+  },
+  {
+    "name": "liho-tv-strategy-demo",
+    "description": "Interactive multilingual strategic partnership prototype for LiHO TV",
+    "repo_url": "https://github.com/jjfishjj/liho-tv-strategy-demo",
+    "pages_url": "https://jjfishjj.github.io/liho-tv-strategy-demo/",
+    "language": "HTML",
+    "pushed_at": "2026-08-13"
+  },
+  {
+    "name": "memolingua",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/memolingua",
+    "pages_url": "https://jjfishjj.github.io/memolingua/",
+    "language": "HTML",
+    "pushed_at": "2026-08-01"
+  },
+  {
+    "name": "nemoclaw-arduino-robot-arm",
+    "description": "Safety-first NemoClaw/OpenClaw control bridge for an Arduino robot arm",
+    "repo_url": "https://github.com/jjfishjj/nemoclaw-arduino-robot-arm",
+    "pages_url": "https://jjfishjj.github.io/nemoclaw-arduino-robot-arm/",
+    "language": "Python",
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "nim-inference-cost-analysis",
+    "description": "A PM's TCO framework for LLM inference: managed API vs NVIDIA NIM self-hosting, with cost calculator",
+    "repo_url": "https://github.com/jjfishjj/nim-inference-cost-analysis",
+    "pages_url": "https://jjfishjj.github.io/nim-inference-cost-analysis/",
+    "language": "Python",
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "nim-rag-language-tutor",
+    "description": "RAG language tutor on NVIDIA NIM APIs (NV-EmbedQA + Nemotron) — grounded grammar answers with practice exercises",
+    "repo_url": "https://github.com/jjfishjj/nim-rag-language-tutor",
+    "pages_url": "https://jjfishjj.github.io/nim-rag-language-tutor/",
+    "language": "Python",
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "nvidia-dev-pipeline-demo",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/nvidia-dev-pipeline-demo",
+    "pages_url": "https://jjfishjj.github.io/nvidia-dev-pipeline-demo/",
+    "language": "HTML",
+    "pushed_at": "2026-07-21"
+  },
+  {
+    "name": "nvidia-full-stack-lab",
+    "description": "繁體中文 NVIDIA GPU 加速全棧知識地圖與六個實作專案",
+    "repo_url": "https://github.com/jjfishjj/nvidia-full-stack-lab",
+    "pages_url": "https://jjfishjj.github.io/nvidia-full-stack-lab/",
+    "language": "HTML",
+    "pushed_at": "2026-08-12"
+  },
+  {
+    "name": "omniverse-ops-starter",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/omniverse-ops-starter",
+    "pages_url": "https://jjfishjj.github.io/omniverse-ops-starter/",
+    "language": "Python",
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "openusd-factory-digital-twin",
+    "description": "Procedurally-generated factory production-line digital twin in OpenUSD (NVIDIA Omniverse-ready, runs GPU-free)",
+    "repo_url": "https://github.com/jjfishjj/openusd-factory-digital-twin",
+    "pages_url": "https://jjfishjj.github.io/openusd-factory-digital-twin/",
+    "language": "Python",
+    "pushed_at": "2026-08-20"
+  },
+  {
+    "name": "papiin-product-demo",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/papiin-product-demo",
+    "pages_url": "https://jjfishjj.github.io/papiin-product-demo/",
+    "language": "HTML",
+    "pushed_at": "2026-08-04"
+  },
+  {
+    "name": "relayform",
+    "description": "Universal AI Connector prototype for websites and OpenAPI",
+    "repo_url": "https://github.com/jjfishjj/relayform",
+    "pages_url": "https://jjfishjj.github.io/relayform/",
+    "language": "TypeScript",
+    "pushed_at": "2026-07-19"
+  },
+  {
+    "name": "software-intake-form",
+    "description": "Interactive software development intake form prototype",
+    "repo_url": "https://github.com/jjfishjj/software-intake-form",
+    "pages_url": "https://jjfishjj.github.io/software-intake-form/",
+    "language": "HTML",
+    "pushed_at": "2026-07-26"
+  },
+  {
+    "name": "taiji-posture-demo",
+    "description": "Browser-based Tai Chi posture analysis demo with MediaPipe, editable scoring rules, and expert review workflow",
+    "repo_url": "https://github.com/jjfishjj/taiji-posture-demo",
+    "pages_url": "https://jjfishjj.github.io/taiji-posture-demo/",
+    "language": "HTML",
+    "pushed_at": "2026-08-07"
+  },
+  {
+    "name": "tomoaid-operating-board",
+    "description": "TomoAid 四大專案營運看板｜Human First > AI First",
+    "repo_url": "https://github.com/jjfishjj/tomoaid-operating-board",
+    "pages_url": "https://jjfishjj.github.io/tomoaid-operating-board/",
+    "language": "HTML",
+    "pushed_at": "2026-07-17"
+  },
+  {
+    "name": "tomohire-demo",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/tomohire-demo",
+    "pages_url": "https://jjfishjj.github.io/tomohire-demo/",
+    "language": "CSS",
+    "pushed_at": "2026-07-16"
+  },
+  {
+    "name": "zero-ai-connector-hub",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/zero-ai-connector-hub",
+    "pages_url": "https://jjfishjj.github.io/zero-ai-connector-hub/",
+    "language": "TypeScript",
+    "pushed_at": "2026-07-19"
+  },
+  {
+    "name": "0624ML-ximen",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/0624ML-ximen",
+    "pages_url": null,
+    "language": "Jupyter Notebook",
+    "pushed_at": "2024-06-24"
+  },
+  {
+    "name": "ai-media-studio",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/ai-media-studio",
+    "pages_url": null,
+    "language": "TypeScript",
+    "pushed_at": "2026-05-24"
+  },
+  {
+    "name": "avmapping",
+    "description": "avmapping",
+    "repo_url": "https://github.com/jjfishjj/avmapping",
+    "pages_url": null,
+    "language": null,
+    "pushed_at": "2023-10-18"
+  },
+  {
+    "name": "campus-connect",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/campus-connect",
+    "pages_url": null,
+    "language": "TypeScript",
+    "pushed_at": "2026-05-06"
+  },
+  {
+    "name": "campus-life-sim",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/campus-life-sim",
+    "pages_url": null,
+    "language": "TypeScript",
+    "pushed_at": "2026-04-13"
+  },
+  {
+    "name": "code",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/code",
+    "pages_url": null,
+    "language": null,
+    "pushed_at": "2020-02-12"
+  },
+  {
+    "name": "daily-growth-journal",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/daily-growth-journal",
+    "pages_url": null,
+    "language": "TypeScript",
+    "pushed_at": "2026-08-15"
+  },
+  {
+    "name": "Flutter",
+    "description": "practice",
+    "repo_url": "https://github.com/jjfishjj/Flutter",
+    "pages_url": null,
+    "language": null,
+    "pushed_at": "2021-04-13"
+  },
+  {
+    "name": "gpt-ai-assistant",
+    "description": "OpenAI + LINE + Vercel = GPT AI Assistant",
+    "repo_url": "https://github.com/jjfishjj/gpt-ai-assistant",
+    "pages_url": null,
+    "language": "JavaScript",
+    "pushed_at": "2023-01-30"
+  },
+  {
+    "name": "ic-power-efficiency",
+    "description": "研究 IC 晶片節能技術：Clock Gating、Power Gating、DVFS 與 AI 功耗預測",
+    "repo_url": "https://github.com/jjfishjj/ic-power-efficiency",
+    "pages_url": null,
+    "language": "Python",
+    "pushed_at": "2026-07-05"
+  },
+  {
+    "name": "isaac-smartsort",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/isaac-smartsort",
+    "pages_url": null,
+    "language": "Python",
+    "pushed_at": "2026-08-17"
+  },
+  {
+    "name": "jerome.github.io",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/jerome.github.io",
+    "pages_url": null,
+    "language": null,
+    "pushed_at": "2024-11-26"
+  },
+  {
+    "name": "jeromekuo",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/jeromekuo",
+    "pages_url": null,
+    "language": "TypeScript",
+    "pushed_at": "2026-08-18"
+  },
+  {
+    "name": "nvidia-computex2026-optimizer",
+    "description": "Optimization toolkit for NVIDIA Vera Rubin, Nemotron 3 Ultra 550B & Alpamayo 2 Super - Computex 2026",
+    "repo_url": "https://github.com/jjfishjj/nvidia-computex2026-optimizer",
+    "pages_url": null,
+    "language": "Python",
+    "pushed_at": "2026-06-03"
+  },
+  {
+    "name": "reactclass2",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/reactclass2",
+    "pages_url": null,
+    "language": null,
+    "pushed_at": "2024-07-26"
+  },
+  {
+    "name": "taichi-flow-coach",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/taichi-flow-coach",
+    "pages_url": null,
+    "language": "TypeScript",
+    "pushed_at": "2026-04-04"
+  },
+  {
+    "name": "Zero",
+    "description": "",
+    "repo_url": "https://github.com/jjfishjj/Zero",
+    "pages_url": null,
+    "language": "TypeScript",
+    "pushed_at": "2026-07-19"
+  }
+]
