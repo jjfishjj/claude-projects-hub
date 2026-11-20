@@ -77,7 +77,8 @@ def featured_card(item, project, index):
     flow = "".join(f"<li>{escape(step)}</li>" for step in item.get("journey", []))
     evidence = escape(item.get("evidence", "可直接開啟線上原型體驗。"))
     source_url = escape(project["repo_url"], quote=True)
-    pages_url = escape(project["pages_url"], quote=True)
+    experience_url = escape(item.get("experience_url", project["pages_url"]), quote=True)
+    experience_label = escape(item.get("experience_label", "體驗產品"))
     lead_class = " featured-card--lead" if index == 0 else ""
     return f"""<article class="featured-card{lead_class}">
   <div class="featured-copy">
@@ -86,12 +87,12 @@ def featured_card(item, project, index):
     <p class="featured-summary">{escape(item.get('summary', project['display_description']))}</p>
     <p class="evidence"><span class="evidence-label">可見產品範圍</span>{evidence}</p>
     <div class="featured-links">
-      <a class="button button--primary" href="{pages_url}">體驗產品 <span aria-hidden="true">↗</span></a>
+      <a class="button button--primary" href="{experience_url}">{experience_label} <span aria-hidden="true">↗</span></a>
       <a class="text-link" href="{source_url}" target="_blank" rel="noopener noreferrer">查看原始碼 <span aria-hidden="true">↗</span></a>
     </div>
   </div>
   <div class="journey-panel">
-    <span class="journey-label">使用者旅程</span>
+    <span class="journey-label">體驗流程</span>
     <ol>{flow}</ol>
   </div>
 </article>"""
@@ -138,10 +139,10 @@ HTML = f"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI 產品作品集｜Jerome Kuo</title>
-<meta name="description" content="Jerome Kuo 的 AI 產品作品集：以可體驗原型展示學習、語言與社群服務的產品流程，並收錄技術研究與專案。">
-<meta property="og:title" content="AI 產品作品集｜Jerome Kuo">
-<meta property="og:description" content="從問題定義到可體驗原型：先看精選產品案例，再探索技術研究與完整專案庫。">
+<title>AI × GPU × 數位孿生作品集｜Jerome Kuo</title>
+<meta name="description" content="Jerome Kuo 的 AI、GPU 與數位孿生作品集：以可體驗產品原型與技術案例，展示從問題定義到操作流程的設計。">
+<meta property="og:title" content="AI × GPU × 數位孿生作品集｜Jerome Kuo">
+<meta property="og:description" content="先看可操作的 AI 產品、GPU 分析 Lab 與 OpenUSD 工廠數位孿生，再探索完整專案庫。">
 <meta name="theme-color" content="#f5f4ef">
 <style>
 :root {{
@@ -243,21 +244,21 @@ footer a {{ color:var(--accent); text-decoration:none; }}
 <body>
 <a class="skip-link" href="#main">跳到主要內容</a>
 <div class="wrap">
-  <div class="topline"><span>Jerome Kuo · AI Product Portfolio</span><a href="https://github.com/jjfishjj" target="_blank" rel="noopener noreferrer">GitHub 個人頁 ↗</a></div>
+  <div class="topline"><span>Jerome Kuo · AI Product &amp; Tech Portfolio</span><a href="https://github.com/jjfishjj" target="_blank" rel="noopener noreferrer">GitHub 個人頁 ↗</a></div>
   <header class="hero">
-    <p class="eyebrow">產品策略 × AI 實作</p>
-    <h1>從問題定義，到可體驗的產品。</h1>
-    <p class="hero-copy">我把 AI、學習與服務流程轉成清楚、可操作的產品原型。先看幾個具體的使用者旅程；技術研究和其他實驗則整理在後面。</p>
+    <p class="eyebrow">產品策略 × AI × GPU × OpenUSD</p>
+    <h1>把複雜技術，做成可體驗的產品。</h1>
+    <p class="hero-copy">我把 AI、GPU 加速與 OpenUSD 數位孿生的技術，轉成可操作的產品原型與決策工具。先看具體的使用者旅程，再探索研究與完整專案庫。</p>
     <div class="hero-bottom">
-      <div class="hero-proof"><span><strong>{featured_count}</strong> 個精選產品原型</span><span><strong>{len(live)}</strong> 個線上作品</span></div>
-      <nav class="hero-actions" aria-label="主要導覽"><a class="button button--primary" href="#featured">先看產品體驗 <span aria-hidden="true">↓</span></a><a class="text-link" href="#library">完整作品索引</a></nav>
+      <div class="hero-proof"><span><strong>{featured_count}</strong> 個精選可體驗案例</span><span><strong>{len(live)}</strong> 個線上作品</span></div>
+      <nav class="hero-actions" aria-label="主要導覽"><a class="button button--primary" href="#featured">先看案例體驗 <span aria-hidden="true">↓</span></a><a class="text-link" href="#library">完整作品索引</a></nav>
     </div>
   </header>
 
   <main id="main">
     <section class="section" id="featured" aria-labelledby="featured-title">
       <div class="section-heading">
-        <div><p class="eyebrow">FEATURED PRODUCT FLOWS</p><h2 id="featured-title">先看可操作的產品旅程</h2><p class="section-intro">這些是線上原型，不代表已商轉或經過正式成效驗證；每個案例都附上可見功能範圍，方便直接體驗。</p></div>
+        <div><p class="eyebrow">FEATURED CASE STUDIES</p><h2 id="featured-title">先看可操作的產品與技術案例</h2><p class="section-intro">精選原型與技術案例以公開頁面可體驗的功能為準；不代表已商轉或通過正式成效驗證。</p></div>
         <span class="count">{featured_count} 個精選</span>
       </div>
       <div class="featured-grid">{featured_html}</div>
@@ -268,7 +269,7 @@ footer a {{ color:var(--accent); text-decoration:none; }}
     <section class="archive" id="library" aria-label="完整作品索引">
       <details>
         <summary><span>技術研究與工具</span><span class="count">{lab_count} 個線上專案</span></summary>
-        <p class="archive-note">GPU、數位孿生、基礎工具與個人網站等探索作品保留在此，與產品案例分層呈現。</p>
+        <p class="archive-note">其他 GPU、數位孿生、基礎工具與個人網站探索作品保留在此，與精選案例分層呈現。</p>
         {lab_html}
       </details>
       <details>
