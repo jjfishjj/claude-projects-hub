@@ -3,326 +3,493 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Claude Projects Hub — Jerome Kuo</title>
-<meta name="description" content="本機 Claude / Codex 專案的 GitHub Pages 部署索引，共 31 個已上線站點。">
+<title>AI 產品作品集｜Jerome Kuo</title>
+<meta name="description" content="Jerome Kuo 的 AI 產品作品集：以可體驗原型展示學習、語言與社群服務的產品流程，並收錄技術研究與專案。">
+<meta property="og:title" content="AI 產品作品集｜Jerome Kuo">
+<meta property="og:description" content="從問題定義到可體驗原型：先看精選產品案例，再探索技術研究與完整專案庫。">
+<meta name="theme-color" content="#f5f4ef">
 <style>
 :root {
-  --bg:#fbfbfa; --panel:#fff; --border:#e6e3dd; --fg:#1f1d1a; --muted:#6d675e;
-  --accent:#c25a2b; --tagbg:#f2efe9; --shadow:0 1px 2px rgba(0,0,0,.05);
+  color-scheme: light dark;
+  --bg:#f5f4ef; --panel:#fff; --panel-soft:#eeeee8; --line:#dfded5;
+  --ink:#172923; --muted:#65736d; --accent:#23665c; --accent-hover:#164c43;
+  --warm:#d58b61; --shadow:0 12px 34px rgba(24,43,36,.07);
 }
 @media (prefers-color-scheme:dark) {
-  :root:not([data-theme=light]) {
-    --bg:#16150f; --panel:#1e1d17; --border:#332f26; --fg:#eeebe4; --muted:#9c9486;
-    --accent:#e4834f; --tagbg:#27251d; --shadow:none;
+  :root {
+    --bg:#111a17; --panel:#18231f; --panel-soft:#202d28; --line:#304139;
+    --ink:#ecf2ed; --muted:#a5b4ab; --accent:#82c3ac; --accent-hover:#a4ddc7;
+    --warm:#edaa7d; --shadow:0 12px 34px rgba(0,0,0,.18);
   }
 }
-*{box-sizing:border-box}
-body {
-  margin:0; background:var(--bg); color:var(--fg);
-  font:16px/1.6 ui-sans-serif,-apple-system,"Noto Sans TC",system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 ui-sans-serif,-apple-system,"Noto Sans TC",system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+a { color:inherit; }
+a:focus-visible, summary:focus-visible { outline:3px solid var(--warm); outline-offset:4px; border-radius:5px; }
+.skip-link { position:absolute; left:-999px; top:8px; z-index:5; background:var(--panel); padding:8px 12px; }
+.skip-link:focus { left:8px; }
+.wrap { width:min(1120px,100%); margin:0 auto; padding:28px 26px 72px; }
+.topline { display:flex; align-items:center; justify-content:space-between; gap:18px; color:var(--muted); font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
+.topline a { color:var(--muted); text-decoration:none; letter-spacing:0; text-transform:none; }
+.hero { padding:66px 0 42px; border-bottom:1px solid var(--line); }
+.eyebrow { margin:0; color:var(--accent); font-size:11px; font-weight:750; letter-spacing:.13em; text-transform:uppercase; }
+h1 { max-width:850px; margin:12px 0 16px; font-size:clamp(36px,6vw,66px); line-height:1.12; letter-spacing:-.045em; }
+.hero-copy { max-width:680px; margin:0; color:var(--muted); font-size:clamp(16px,2vw,19px); }
+.hero-bottom { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-top:30px; flex-wrap:wrap; }
+.hero-proof { display:flex; gap:10px 22px; flex-wrap:wrap; color:var(--muted); font-size:13px; }
+.hero-proof strong { color:var(--ink); font-size:16px; }
+.hero-actions { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.button { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 16px; border:1px solid transparent; border-radius:8px; font-size:14px; font-weight:700; text-decoration:none; transition:transform .18s ease,background .18s ease; }
+.button:hover { transform:translateY(-1px); }
+.button--primary { background:var(--accent); color:#fff; }
+.button--primary:hover { background:var(--accent-hover); }
+.text-link { color:var(--accent); font-size:13px; font-weight:700; text-decoration:none; }
+.section { margin-top:54px; }
+.section-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:20px; }
+.section-heading h2 { margin:4px 0 0; font-size:clamp(24px,3vw,32px); line-height:1.25; letter-spacing:-.025em; }
+.section-heading p { margin:0; }
+.section-intro { max-width:650px; margin:8px 0 0; color:var(--muted); font-size:14px; }
+.count { color:var(--muted); font-size:12px; white-space:nowrap; }
+.featured-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.featured-card { min-width:0; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:24px; border:1px solid var(--line); border-radius:16px; background:var(--panel); box-shadow:var(--shadow); }
+.featured-card--lead { grid-column:1/-1; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(240px,.85fr); align-items:center; gap:34px; padding:30px; background:linear-gradient(135deg,var(--panel),color-mix(in srgb,var(--accent) 7%,var(--panel))); }
+.featured-meta { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.case-number { color:var(--muted); font-size:11px; letter-spacing:.1em; }
+.featured-card h3 { margin:12px 0 8px; font-size:clamp(22px,3vw,31px); line-height:1.25; letter-spacing:-.025em; }
+.featured-summary { margin:0; color:var(--muted); font-size:15px; }
+.evidence { margin:18px 0 0; padding-left:12px; border-left:2px solid var(--warm); color:var(--muted); font-size:12.5px; }
+.evidence-label { display:block; margin-bottom:3px; color:var(--ink); font-weight:700; }
+.featured-links { display:flex; align-items:center; gap:18px; margin-top:20px; flex-wrap:wrap; }
+.journey-panel { padding:20px; border:1px solid var(--line); border-radius:12px; background:var(--panel-soft); }
+.journey-label { color:var(--muted); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.journey-panel ol { list-style:none; padding:0; margin:12px 0 0; counter-reset:journey; }
+.journey-panel li { position:relative; display:flex; align-items:center; gap:11px; padding:8px 0; color:var(--ink); font-size:13px; }
+.journey-panel li:not(:last-child)::after { position:absolute; left:11px; top:31px; width:1px; height:12px; background:var(--line); content:""; }
+.journey-panel li::before { display:grid; place-items:center; flex:0 0 23px; width:23px; height:23px; border:1px solid var(--line); border-radius:50%; color:var(--accent); font-size:10px; font-weight:700; counter-increment:journey; content:counter(journey); }
+.project-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.project-card { min-width:0; display:flex; flex-direction:column; padding:18px; border:1px solid var(--line); border-radius:12px; background:var(--panel); }
+.project-tags { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.tag { padding:3px 8px; border-radius:5px; background:var(--panel-soft); color:var(--muted); font-size:10.5px; }
+.tag--category { color:var(--accent); font-weight:700; }
+.project-card h3 { margin:12px 0 6px; font-size:16px; line-height:1.35; overflow-wrap:anywhere; }
+.project-card h3 a { text-decoration:none; }
+.project-card h3 a:hover { color:var(--accent); }
+.project-card p { flex:1; margin:0 0 16px; color:var(--muted); font-size:13px; line-height:1.55; }
+.project-links { display:flex; gap:16px; flex-wrap:wrap; padding-top:12px; border-top:1px solid var(--line); }
+.project-links a { color:var(--accent); font-size:11.5px; font-weight:700; text-decoration:none; }
+.project-links a:hover, .text-link:hover { text-decoration:underline; text-underline-offset:3px; }
+.archive { margin-top:50px; border-top:1px solid var(--line); }
+.archive details { border-bottom:1px solid var(--line); }
+.archive summary { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 2px; cursor:pointer; font-size:15px; font-weight:700; list-style:none; }
+.archive summary::-webkit-details-marker { display:none; }
+.archive summary::after { content:"＋"; color:var(--accent); font-size:18px; font-weight:400; }
+.archive details[open] summary::after { content:"−"; }
+.archive-note { margin:0 0 24px; color:var(--muted); font-size:13px; }
+.lab-section { margin:24px 0 34px; }
+.section-heading--compact { align-items:center; margin-bottom:14px; }
+.section-heading--compact h3 { margin:0; font-size:17px; }
+.archive details ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 22px; list-style:none; padding:0; margin:0 0 24px; }
+.archive details li { display:flex; flex-direction:column; gap:3px; font-size:13px; }
+.archive details li a { width:fit-content; color:var(--ink); text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px; }
+.archive details li span { color:var(--muted); font-size:11.5px; }
+footer { display:flex; justify-content:space-between; gap:16px; margin-top:42px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+footer a { color:var(--accent); text-decoration:none; }
+@media (max-width:800px) { .project-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:620px) {
+  .wrap { padding:20px 18px 52px; } .hero { padding:50px 0 32px; }
+  .featured-grid { grid-template-columns:1fr; } .featured-card--lead { grid-column:auto; grid-template-columns:1fr; gap:22px; padding:22px; }
+  .project-grid { grid-template-columns:1fr; } .section-heading { align-items:flex-start; }
+  .archive details ul { grid-template-columns:1fr; } footer { flex-direction:column; }
 }
-.wrap{max-width:1080px;margin:0 auto;padding:56px 24px 80px}
-header{border-bottom:1px solid var(--border);padding-bottom:28px;margin-bottom:12px}
-h1{font-size:clamp(28px,4vw,40px);margin:0 0 8px;letter-spacing:-.02em}
-.sub{color:var(--muted);margin:0;max-width:60ch}
-.stats{display:flex;gap:28px;margin-top:24px;flex-wrap:wrap}
-.stat b{display:block;font-size:26px;line-height:1.2;color:var(--accent)}
-.stat span{font-size:13px;color:var(--muted)}
-section{margin-top:44px}
-h2{font-size:15px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);
-   margin:0 0 16px;display:flex;align-items:center;gap:10px;font-weight:600}
-.count{background:var(--tagbg);color:var(--muted);border-radius:99px;
-  padding:1px 9px;font-size:12px;letter-spacing:0}
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(288px,1fr))}
-.card{display:block;background:var(--panel);border:1px solid var(--border);border-radius:12px;
-  padding:18px 18px 14px;text-decoration:none;color:inherit;box-shadow:var(--shadow);
-  transition:border-color .15s,transform .15s}
-.card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.card h3{margin:0 0 7px;font-size:16px;font-weight:600;word-break:break-word}
-.card p{margin:0 0 14px;font-size:13.5px;color:var(--muted);line-height:1.55}
-.meta{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
-.tag{background:var(--tagbg);color:var(--muted);border-radius:5px;padding:2px 7px;font-size:11.5px}
-.repo{margin-left:auto;font-size:11.5px;color:var(--accent);opacity:.85}
-details{margin-top:48px;border-top:1px solid var(--border);padding-top:24px}
-summary{cursor:pointer;color:var(--muted);font-size:14px}
-details ul{list-style:none;padding:0;margin:16px 0 0;
-  display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
-details li{font-size:13px;display:flex;flex-direction:column;gap:2px}
-details li a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--border)}
-details li a:hover{color:var(--accent)}
-details li span{color:var(--muted);font-size:12px}
-footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);
-  color:var(--muted);font-size:12.5px}
-footer a{color:var(--accent)}
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none !important; } }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要內容</a>
 <div class="wrap">
-  <header>
-    <h1>Claude Projects Hub</h1>
-    <p class="sub">本機 Claude / Codex 專案的 GitHub Pages 部署索引。每張卡片連到已上線的站點，
-       右下角 source 連到原始碼 repo。</p>
-    <div class="stats">
-      <div class="stat"><b>31</b><span>已上線 Pages</span></div>
-      <div class="stat"><b>47</b><span>公開 repo</span></div>
-      <div class="stat"><b>6</b><span>分類</span></div>
-      <div class="stat"><b>2026-08-21</b><span>最後更新</span></div>
+  <div class="topline"><span>Jerome Kuo · AI Product Portfolio</span><a href="https://github.com/jjfishjj" target="_blank" rel="noopener noreferrer">GitHub 個人頁 ↗</a></div>
+  <header class="hero">
+    <p class="eyebrow">產品策略 × AI 實作</p>
+    <h1>從問題定義，到可體驗的產品。</h1>
+    <p class="hero-copy">我把 AI、學習與服務流程轉成清楚、可操作的產品原型。先看幾個具體的使用者旅程；技術研究和其他實驗則整理在後面。</p>
+    <div class="hero-bottom">
+      <div class="hero-proof"><span><strong>4</strong> 個精選產品原型</span><span><strong>31</strong> 個線上作品</span></div>
+      <nav class="hero-actions" aria-label="主要導覽"><a class="button button--primary" href="#featured">先看產品體驗 <span aria-hidden="true">↓</span></a><a class="text-link" href="#library">完整作品索引</a></nav>
     </div>
   </header>
 
-    <section>
-      <h2>NVIDIA / GPU <span class="count">9</span></h2>
-      <div class="grid">
-      <a class="card" href="https://jjfishjj.github.io/cudf-game-analytics-benchmark/">
-        <h3>cudf-game-analytics-benchmark</h3>
-        <p>Game-ops analytics (RFM/retention/funnel) on 20M events: pandas vs RAPIDS cudf.pandas, zero code change</p>
-        <div class="meta"><span class="tag">Jupyter Notebook</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/cudf-game-analytics-benchmark">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/gpu-power-demo/">
-        <h3>gpu-power-demo</h3>
-        <p>GPU power reduction techniques: RTL clock gating, INT8/INT4 quantisation, 2:4 sparsity, DVFS — runnable Python + Verilog demos</p>
-        <div class="meta"><span class="tag">Python</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/gpu-power-demo">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/jetson-edge-ai-proposal/">
-        <h3>jetson-edge-ai-proposal</h3>
-        <p>StoreSense: privacy-first retail footfall analytics on NVIDIA Jetson — product proposal, architecture, phased prototype plan</p>
-        <div class="meta"><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/jetson-edge-ai-proposal">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/nemoclaw-arduino-robot-arm/">
-        <h3>nemoclaw-arduino-robot-arm</h3>
-        <p>Safety-first NemoClaw/OpenClaw control bridge for an Arduino robot arm</p>
-        <div class="meta"><span class="tag">Python</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/nemoclaw-arduino-robot-arm">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/nim-inference-cost-analysis/">
-        <h3>nim-inference-cost-analysis</h3>
-        <p>A PM&#x27;s TCO framework for LLM inference: managed API vs NVIDIA NIM self-hosting, with cost calculator</p>
-        <div class="meta"><span class="tag">Python</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/nim-inference-cost-analysis">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/nim-rag-language-tutor/">
-        <h3>nim-rag-language-tutor</h3>
-        <p>RAG language tutor on NVIDIA NIM APIs (NV-EmbedQA + Nemotron) — grounded grammar answers with practice exercises</p>
-        <div class="meta"><span class="tag">Python</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/nim-rag-language-tutor">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/openshell-agent-security-demo/">
-        <h3>openshell-agent-security-demo</h3>
-        <p>用 NVIDIA OpenShell 核心層沙箱封鎖 AI coding agent，並以稽核日誌證明政策確實生效</p>
-        <div class="meta"><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/openshell-agent-security-demo">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/nvidia-full-stack-lab/">
-        <h3>nvidia-full-stack-lab</h3>
-        <p>繁體中文 NVIDIA GPU 加速全棧知識地圖與六個實作專案</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-08-12</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/nvidia-full-stack-lab">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/nvidia-dev-pipeline-demo/">
-        <h3>nvidia-dev-pipeline-demo</h3>
-        <p>NVIDIA 開發者工具鏈 pipeline 示範</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-07-21</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/nvidia-dev-pipeline-demo">source ↗</span></div>
-      </a>
+  <main id="main">
+    <section class="section" id="featured" aria-labelledby="featured-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">FEATURED PRODUCT FLOWS</p><h2 id="featured-title">先看可操作的產品旅程</h2><p class="section-intro">這些是線上原型，不代表已商轉或經過正式成效驗證；每個案例都附上可見功能範圍，方便直接體驗。</p></div>
+        <span class="count">4 個精選</span>
       </div>
-    </section>
-    <section>
-      <h2>數位孿生 / Omniverse <span class="count">4</span></h2>
-      <div class="grid">
-      <a class="card" href="https://jjfishjj.github.io/fab-digital-twin/">
-        <h3>fab-digital-twin</h3>
-        <p>300mm 半導體晶圓廠的參數化 OpenUSD 數位孿生，純 JSON spec 驅動，無需 GPU 或 Omniverse 授權</p>
-        <div class="meta"><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/fab-digital-twin">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/omniverse-ops-starter/">
-        <h3>omniverse-ops-starter</h3>
-        <p>Omniverse 場域維運起始範本：USD 圖層、Isaac AMR 情境、即時遙測</p>
-        <div class="meta"><span class="tag">Python</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/omniverse-ops-starter">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/openusd-factory-digital-twin/">
-        <h3>openusd-factory-digital-twin</h3>
-        <p>Procedurally-generated factory production-line digital twin in OpenUSD (NVIDIA Omniverse-ready, runs GPU-free)</p>
-        <div class="meta"><span class="tag">Python</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/openusd-factory-digital-twin">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/flowforge-factory-twin/">
-        <h3>flowforge-factory-twin</h3>
-        <p>OpenUSD-ready factory digital twin for layout planning, capacity simulation, and Omniverse workflows</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-08-09</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/flowforge-factory-twin">source ↗</span></div>
-      </a>
-      </div>
-    </section>
-    <section>
-      <h2>AI 產品 Demo <span class="count">9</span></h2>
-      <div class="grid">
-      <a class="card" href="https://jjfishjj.github.io/academic-memory-lab/">
-        <h3>academic-memory-lab</h3>
-        <p>一個專為學院型態學習者設計的互動平台，結合「情境鉤子卡」與「情感故事卡」，將學術知識轉化為具備情感與場景的記憶點。包含學科選擇、場景掛鉤、故事編織與回想測試功能。 · 使用 Manus 建立</p>
-        <div class="meta"><span class="tag">TypeScript</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/academic-memory-lab">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/academic-memory-lab-demo/">
-        <h3>academic-memory-lab-demo</h3>
-        <p>Interactive MemoDesk memory training demo</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/academic-memory-lab-demo">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/fluent-ai/">
-        <h3>fluent-ai</h3>
-        <p>語言學習 AI 產品原型</p>
-        <div class="meta"><span class="tag">TypeScript</span><span class="tag date">2026-08-19</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/fluent-ai">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/taiji-posture-demo/">
-        <h3>taiji-posture-demo</h3>
-        <p>Browser-based Tai Chi posture analysis demo with MediaPipe, editable scoring rules, and expert review workflow</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-08-07</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/taiji-posture-demo">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/papiin-product-demo/">
-        <h3>papiin-product-demo</h3>
-        <p>Papiin 產品展示原型</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-08-04</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/papiin-product-demo">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/memolingua/">
-        <h3>memolingua</h3>
-        <p>MemoLingua 記憶式語言學習平台</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-08-01</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/memolingua">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/lifegether-demo/">
-        <h3>lifegether-demo</h3>
-        <p>LifeGether responsive community event platform demo</p>
-        <div class="meta"><span class="tag">JavaScript</span><span class="tag date">2026-07-21</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/lifegether-demo">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/lifegether/">
-        <h3>lifegether</h3>
-        <p>LifeGether 社群活動平台</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-07-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/lifegether">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/tomohire-demo/">
-        <h3>tomohire-demo</h3>
-        <p>TomoHire 招募產品原型</p>
-        <div class="meta"><span class="tag">CSS</span><span class="tag date">2026-07-16</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/tomohire-demo">source ↗</span></div>
-      </a>
-      </div>
-    </section>
-    <section>
-      <h2>PM / 商業提案 <span class="count">4</span></h2>
-      <div class="grid">
-      <a class="card" href="https://jjfishjj.github.io/liho-tv-strategy-demo/">
-        <h3>liho-tv-strategy-demo</h3>
-        <p>Interactive multilingual strategic partnership prototype for LiHO TV</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-08-13</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/liho-tv-strategy-demo">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/software-intake-form/">
-        <h3>software-intake-form</h3>
-        <p>Interactive software development intake form prototype</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-07-26</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/software-intake-form">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/tomoaid-operating-board/">
-        <h3>tomoaid-operating-board</h3>
-        <p>TomoAid 四大專案營運看板｜Human First &gt; AI First</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-07-17</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/tomoaid-operating-board">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/chunshin-learningops-insight/">
-        <h3>chunshin-learningops-insight</h3>
-        <p>Chun Shin LearningOps Insight demo for data, campus activation, language consulting, and course operations</p>
-        <div class="meta"><span class="tag">JavaScript</span><span class="tag date">2026-07-14</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/chunshin-learningops-insight">source ↗</span></div>
-      </a>
-      </div>
-    </section>
-    <section>
-      <h2>工具 / Infra <span class="count">3</span></h2>
-      <div class="grid">
-      <a class="card" href="https://jjfishjj.github.io/claude-projects-hub/">
-        <h3>claude-projects-hub</h3>
-        <p>本頁本身：專案盤點與 Pages 批次部署工具</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/claude-projects-hub">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/relayform/">
-        <h3>relayform</h3>
-        <p>Universal AI Connector prototype for websites and OpenAPI</p>
-        <div class="meta"><span class="tag">TypeScript</span><span class="tag date">2026-07-19</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/relayform">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/zero-ai-connector-hub/">
-        <h3>zero-ai-connector-hub</h3>
-        <p>Zero AI Connector Hub 連接器整合中心</p>
-        <div class="meta"><span class="tag">TypeScript</span><span class="tag date">2026-07-19</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/zero-ai-connector-hub">source ↗</span></div>
-      </a>
-      </div>
-    </section>
-    <section>
-      <h2>個人網站 <span class="count">2</span></h2>
-      <div class="grid">
-      <a class="card" href="https://jjfishjj.github.io/">
-        <h3>jjfishjj.github.io</h3>
-        <p>Jerome Kuo 個人首頁</p>
-        <div class="meta"><span class="tag">HTML</span><span class="tag date">2026-08-20</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/jjfishjj.github.io">source ↗</span></div>
-      </a>
-      <a class="card" href="https://jjfishjj.github.io/jeromekuo/">
-        <h3>jeromekuo</h3>
-        <p>Jerome Kuo 互動式線上履歷</p>
-        <div class="meta"><span class="tag">TypeScript</span><span class="tag date">2026-08-18</span>
-          <span class="repo" data-href="https://github.com/jjfishjj/jeromekuo">source ↗</span></div>
-      </a>
-      </div>
+      <div class="featured-grid"><article class="featured-card">
+  <div class="featured-copy">
+    <div class="featured-meta"><span class="eyebrow">AI × 學習產品</span><span class="case-number">CASE 01</span></div>
+    <h3>MemoLingua</h3>
+    <p class="featured-summary">把學習風格測驗、個人化練習、每日課表與生詞複習串成一條可體驗的學習旅程。</p>
+    <p class="evidence"><span class="evidence-label">可見產品範圍</span>頁面展示 26 張訓練卡、每日訓練課表與生詞複習本。</p>
+    <div class="featured-links">
+      <a class="button button--primary" href="https://jjfishjj.github.io/memolingua/">體驗產品 <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href="https://github.com/jjfishjj/memolingua" target="_blank" rel="noopener noreferrer">查看原始碼 <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="journey-panel">
+    <span class="journey-label">使用者旅程</span>
+    <ol><li>學習診斷</li><li>個人化練習</li><li>每日課表</li><li>間隔複習</li></ol>
+  </div>
+</article>
+<article class="featured-card">
+  <div class="featured-copy">
+    <div class="featured-meta"><span class="eyebrow">AI × 語言練習</span><span class="case-number">CASE 02</span></div>
+    <h3>Fluent AI</h3>
+    <p class="featured-summary">以生活情境與檢定準備為入口，串接 AI 對話、發音／流利度回饋與文法建議。</p>
+    <p class="evidence"><span class="evidence-label">可見產品範圍</span>線上頁面展示多語言、生活情境與 IELTS／TOEFL 練習模式。</p>
+    <div class="featured-links">
+      <a class="button button--primary" href="https://jjfishjj.github.io/fluent-ai/">體驗產品 <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href="https://github.com/jjfishjj/fluent-ai" target="_blank" rel="noopener noreferrer">查看原始碼 <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="journey-panel">
+    <span class="journey-label">使用者旅程</span>
+    <ol><li>選擇情境</li><li>開始對話</li><li>取得回饋</li></ol>
+  </div>
+</article>
+<article class="featured-card">
+  <div class="featured-copy">
+    <div class="featured-meta"><span class="eyebrow">社群 × 活動服務</span><span class="case-number">CASE 03</span></div>
+    <h3>LifeGether</h3>
+    <p class="featured-summary">將探索活動、建立活動與參加報名整理成一段清楚的社群服務流程。</p>
+    <p class="evidence"><span class="evidence-label">可見產品範圍</span>線上原型呈現活動建立表單與報名成功回饋。</p>
+    <div class="featured-links">
+      <a class="button button--primary" href="https://jjfishjj.github.io/lifegether/">體驗產品 <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href="https://github.com/jjfishjj/lifegether" target="_blank" rel="noopener noreferrer">查看原始碼 <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="journey-panel">
+    <span class="journey-label">使用者旅程</span>
+    <ol><li>選擇生活領域</li><li>建立活動</li><li>完成報名</li></ol>
+  </div>
+</article>
+<article class="featured-card">
+  <div class="featured-copy">
+    <div class="featured-meta"><span class="eyebrow">AI × 動作回饋</span><span class="case-number">CASE 04</span></div>
+    <h3>AI 太極姿勢教練</h3>
+    <p class="featured-summary">用瀏覽器上傳姿勢照片或影片，查看關節排列的分析方向與後續檢視流程。</p>
+    <p class="evidence"><span class="evidence-label">可見產品範圍</span>定位為工程驗證原型；頁面明示測試圖不代表拳師認證標準。</p>
+    <div class="featured-links">
+      <a class="button button--primary" href="https://jjfishjj.github.io/taiji-posture-demo/">體驗產品 <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href="https://github.com/jjfishjj/taiji-posture-demo" target="_blank" rel="noopener noreferrer">查看原始碼 <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="journey-panel">
+    <span class="journey-label">使用者旅程</span>
+    <ol><li>上傳影像</li><li>姿勢分析</li><li>檢視回饋</li></ol>
+  </div>
+</article></div>
     </section>
 
-  <details>
-    <summary>尚未部署 Pages 的公開 repo（16）</summary>
-    <ul>
-        <li><a href="https://github.com/jjfishjj/0624ML-ximen">0624ML-ximen</a><span>—</span></li>
-        <li><a href="https://github.com/jjfishjj/ai-media-studio">ai-media-studio</a><span>—</span></li>
-        <li><a href="https://github.com/jjfishjj/avmapping">avmapping</a><span>avmapping</span></li>
-        <li><a href="https://github.com/jjfishjj/campus-connect">campus-connect</a><span>—</span></li>
-        <li><a href="https://github.com/jjfishjj/campus-life-sim">campus-life-sim</a><span>—</span></li>
-        <li><a href="https://github.com/jjfishjj/code">code</a><span>—</span></li>
-        <li><a href="https://github.com/jjfishjj/daily-growth-journal">daily-growth-journal</a><span>—</span></li>
-        <li><a href="https://github.com/jjfishjj/Flutter">Flutter</a><span>practice</span></li>
-        <li><a href="https://github.com/jjfishjj/gpt-ai-assistant">gpt-ai-assistant</a><span>OpenAI + LINE + Vercel = GPT AI Assistant</span></li>
-        <li><a href="https://github.com/jjfishjj/ic-power-efficiency">ic-power-efficiency</a><span>研究 IC 晶片節能技術：Clock Gating、Power Gating、DVFS 與 AI 功耗預測</span></li>
-        <li><a href="https://github.com/jjfishjj/isaac-smartsort">isaac-smartsort</a><span>—</span></li>
-        <li><a href="https://github.com/jjfishjj/jerome.github.io">jerome.github.io</a><span>—</span></li>
-        <li><a href="https://github.com/jjfishjj/nvidia-computex2026-optimizer">nvidia-computex2026-optimizer</a><span>Optimization toolkit for NVIDIA Vera Rubin, Nemotron 3 Ultra 550B &amp; Alpamayo 2 Super - Com</span></li>
-        <li><a href="https://github.com/jjfishjj/reactclass2">reactclass2</a><span>—</span></li>
-        <li><a href="https://github.com/jjfishjj/taichi-flow-coach">taichi-flow-coach</a><span>—</span></li>
-        <li><a href="https://github.com/jjfishjj/Zero">Zero</a><span>—</span></li>
-    </ul>
-  </details>
+    <section class="section" id="more-products" aria-labelledby="more-products-title">
+  <div class="section-heading">
+    <div><p class="eyebrow">PRODUCT EXPLORATIONS</p><h2 id="more-products-title">更多產品原型與策略案例</h2></div>
+    <span class="count">9 個</span>
+  </div>
+  <div class="project-grid"><article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">AI 產品 Demo</span><span class="tag">TypeScript</span></div>
+  <h3><a href="https://jjfishjj.github.io/academic-memory-lab/">academic-memory-lab</a></h3>
+  <p>學術記憶訓練互動平台：結合情境鉤子、故事編織與回想練習。</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/academic-memory-lab/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/academic-memory-lab" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">AI 產品 Demo</span><span class="tag">HTML</span></div>
+  <h3><a href="https://jjfishjj.github.io/academic-memory-lab-demo/">academic-memory-lab-demo</a></h3>
+  <p>Interactive MemoDesk memory training demo</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/academic-memory-lab-demo/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/academic-memory-lab-demo" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">AI 產品 Demo</span><span class="tag">HTML</span></div>
+  <h3><a href="https://jjfishjj.github.io/papiin-product-demo/">papiin-product-demo</a></h3>
+  <p>Papiin 產品展示原型</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/papiin-product-demo/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/papiin-product-demo" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">AI 產品 Demo</span><span class="tag">JavaScript</span></div>
+  <h3><a href="https://jjfishjj.github.io/lifegether-demo/">lifegether-demo</a></h3>
+  <p>LifeGether responsive community event platform demo</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/lifegether-demo/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/lifegether-demo" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">AI 產品 Demo</span><span class="tag">CSS</span></div>
+  <h3><a href="https://jjfishjj.github.io/tomohire-demo/">tomohire-demo</a></h3>
+  <p>TomoHire 招募產品原型</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/tomohire-demo/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/tomohire-demo" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">PM / 商業提案</span><span class="tag">HTML</span></div>
+  <h3><a href="https://jjfishjj.github.io/liho-tv-strategy-demo/">liho-tv-strategy-demo</a></h3>
+  <p>Interactive multilingual strategic partnership prototype for LiHO TV</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/liho-tv-strategy-demo/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/liho-tv-strategy-demo" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">PM / 商業提案</span><span class="tag">HTML</span></div>
+  <h3><a href="https://jjfishjj.github.io/software-intake-form/">software-intake-form</a></h3>
+  <p>Interactive software development intake form prototype</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/software-intake-form/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/software-intake-form" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">PM / 商業提案</span><span class="tag">HTML</span></div>
+  <h3><a href="https://jjfishjj.github.io/tomoaid-operating-board/">tomoaid-operating-board</a></h3>
+  <p>TomoAid 四大專案營運看板｜Human First &gt; AI First</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/tomoaid-operating-board/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/tomoaid-operating-board" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">PM / 商業提案</span><span class="tag">JavaScript</span></div>
+  <h3><a href="https://jjfishjj.github.io/chunshin-learningops-insight/">chunshin-learningops-insight</a></h3>
+  <p>Chun Shin LearningOps Insight demo for data, campus activation, language consulting, and course operations</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/chunshin-learningops-insight/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/chunshin-learningops-insight" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article></div>
+</section>
 
-  <footer>
-    由 <a href="https://github.com/jjfishjj/claude-projects-hub">claude-projects-hub</a> 自動產生 ·
-    重跑 <code>./scripts/scan.sh &amp;&amp; python3 scripts/build_hub.py</code> 即可更新
-  </footer>
+    <section class="archive" id="library" aria-label="完整作品索引">
+      <details>
+        <summary><span>技術研究與工具</span><span class="count">18 個線上專案</span></summary>
+        <p class="archive-note">GPU、數位孿生、基礎工具與個人網站等探索作品保留在此，與產品案例分層呈現。</p>
+        <section class="lab-section" aria-labelledby="lab-1-title">
+  <div class="section-heading section-heading--compact">
+    <h3 id="lab-1-title">NVIDIA / GPU</h3><span class="count">9</span>
+  </div>
+  <div class="project-grid"><article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">NVIDIA / GPU</span><span class="tag">Jupyter Notebook</span></div>
+  <h3><a href="https://jjfishjj.github.io/cudf-game-analytics-benchmark/">cudf-game-analytics-benchmark</a></h3>
+  <p>Game-ops analytics (RFM/retention/funnel) on 20M events: pandas vs RAPIDS cudf.pandas, zero code change</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/cudf-game-analytics-benchmark/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/cudf-game-analytics-benchmark" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">NVIDIA / GPU</span><span class="tag">Python</span></div>
+  <h3><a href="https://jjfishjj.github.io/gpu-power-demo/">gpu-power-demo</a></h3>
+  <p>GPU power reduction techniques: RTL clock gating, INT8/INT4 quantisation, 2:4 sparsity, DVFS — runnable Python + Verilog demos</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/gpu-power-demo/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/gpu-power-demo" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">NVIDIA / GPU</span></div>
+  <h3><a href="https://jjfishjj.github.io/jetson-edge-ai-proposal/">jetson-edge-ai-proposal</a></h3>
+  <p>StoreSense: privacy-first retail footfall analytics on NVIDIA Jetson — product proposal, architecture, phased prototype plan</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/jetson-edge-ai-proposal/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/jetson-edge-ai-proposal" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">NVIDIA / GPU</span><span class="tag">Python</span></div>
+  <h3><a href="https://jjfishjj.github.io/nemoclaw-arduino-robot-arm/">nemoclaw-arduino-robot-arm</a></h3>
+  <p>Safety-first NemoClaw/OpenClaw control bridge for an Arduino robot arm</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/nemoclaw-arduino-robot-arm/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/nemoclaw-arduino-robot-arm" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">NVIDIA / GPU</span><span class="tag">Python</span></div>
+  <h3><a href="https://jjfishjj.github.io/nim-inference-cost-analysis/">nim-inference-cost-analysis</a></h3>
+  <p>A PM&#x27;s TCO framework for LLM inference: managed API vs NVIDIA NIM self-hosting, with cost calculator</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/nim-inference-cost-analysis/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/nim-inference-cost-analysis" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">NVIDIA / GPU</span><span class="tag">Python</span></div>
+  <h3><a href="https://jjfishjj.github.io/nim-rag-language-tutor/">nim-rag-language-tutor</a></h3>
+  <p>RAG language tutor on NVIDIA NIM APIs (NV-EmbedQA + Nemotron) — grounded grammar answers with practice exercises</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/nim-rag-language-tutor/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/nim-rag-language-tutor" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">NVIDIA / GPU</span></div>
+  <h3><a href="https://jjfishjj.github.io/openshell-agent-security-demo/">openshell-agent-security-demo</a></h3>
+  <p>用 NVIDIA OpenShell 核心層沙箱封鎖 AI coding agent，並以稽核日誌證明政策確實生效</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/openshell-agent-security-demo/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/openshell-agent-security-demo" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">NVIDIA / GPU</span><span class="tag">HTML</span></div>
+  <h3><a href="https://jjfishjj.github.io/nvidia-full-stack-lab/">nvidia-full-stack-lab</a></h3>
+  <p>繁體中文 NVIDIA GPU 加速全棧知識地圖與六個實作專案</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/nvidia-full-stack-lab/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/nvidia-full-stack-lab" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">NVIDIA / GPU</span><span class="tag">HTML</span></div>
+  <h3><a href="https://jjfishjj.github.io/nvidia-dev-pipeline-demo/">nvidia-dev-pipeline-demo</a></h3>
+  <p>NVIDIA 開發者工具鏈 pipeline 示範</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/nvidia-dev-pipeline-demo/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/nvidia-dev-pipeline-demo" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article></div>
+</section>
+<section class="lab-section" aria-labelledby="lab-2-title">
+  <div class="section-heading section-heading--compact">
+    <h3 id="lab-2-title">數位孿生 / Omniverse</h3><span class="count">4</span>
+  </div>
+  <div class="project-grid"><article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">數位孿生 / Omniverse</span></div>
+  <h3><a href="https://jjfishjj.github.io/fab-digital-twin/">fab-digital-twin</a></h3>
+  <p>300mm 半導體晶圓廠的參數化 OpenUSD 數位孿生，純 JSON spec 驅動，無需 GPU 或 Omniverse 授權</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/fab-digital-twin/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/fab-digital-twin" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">數位孿生 / Omniverse</span><span class="tag">Python</span></div>
+  <h3><a href="https://jjfishjj.github.io/omniverse-ops-starter/">omniverse-ops-starter</a></h3>
+  <p>Omniverse 場域維運起始範本：USD 圖層、Isaac AMR 情境、即時遙測</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/omniverse-ops-starter/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/omniverse-ops-starter" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">數位孿生 / Omniverse</span><span class="tag">Python</span></div>
+  <h3><a href="https://jjfishjj.github.io/openusd-factory-digital-twin/">openusd-factory-digital-twin</a></h3>
+  <p>Procedurally-generated factory production-line digital twin in OpenUSD (NVIDIA Omniverse-ready, runs GPU-free)</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/openusd-factory-digital-twin/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/openusd-factory-digital-twin" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">數位孿生 / Omniverse</span><span class="tag">HTML</span></div>
+  <h3><a href="https://jjfishjj.github.io/flowforge-factory-twin/">flowforge-factory-twin</a></h3>
+  <p>OpenUSD-ready factory digital twin for layout planning, capacity simulation, and Omniverse workflows</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/flowforge-factory-twin/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/flowforge-factory-twin" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article></div>
+</section>
+<section class="lab-section" aria-labelledby="lab-3-title">
+  <div class="section-heading section-heading--compact">
+    <h3 id="lab-3-title">工具 / Infra</h3><span class="count">3</span>
+  </div>
+  <div class="project-grid"><article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">工具 / Infra</span><span class="tag">HTML</span></div>
+  <h3><a href="https://jjfishjj.github.io/claude-projects-hub/">claude-projects-hub</a></h3>
+  <p>本頁：作品集與專案索引</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/claude-projects-hub/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/claude-projects-hub" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">工具 / Infra</span><span class="tag">TypeScript</span></div>
+  <h3><a href="https://jjfishjj.github.io/relayform/">relayform</a></h3>
+  <p>Universal AI Connector prototype for websites and OpenAPI</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/relayform/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/relayform" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">工具 / Infra</span><span class="tag">TypeScript</span></div>
+  <h3><a href="https://jjfishjj.github.io/zero-ai-connector-hub/">zero-ai-connector-hub</a></h3>
+  <p>Zero AI Connector Hub 連接器整合中心</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/zero-ai-connector-hub/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/zero-ai-connector-hub" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article></div>
+</section>
+<section class="lab-section" aria-labelledby="lab-4-title">
+  <div class="section-heading section-heading--compact">
+    <h3 id="lab-4-title">個人網站</h3><span class="count">2</span>
+  </div>
+  <div class="project-grid"><article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">個人網站</span><span class="tag">HTML</span></div>
+  <h3><a href="https://jjfishjj.github.io/">jjfishjj.github.io</a></h3>
+  <p>Jerome Kuo 個人首頁</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/jjfishjj.github.io" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="project-card">
+  <div class="project-tags"><span class="tag tag--category">個人網站</span><span class="tag">TypeScript</span></div>
+  <h3><a href="https://jjfishjj.github.io/jeromekuo/">jeromekuo</a></h3>
+  <p>Jerome Kuo 互動式線上履歷</p>
+  <div class="project-links">
+    <a href="https://jjfishjj.github.io/jeromekuo/">開啟體驗 <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/jjfishjj/jeromekuo" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
+  </div>
+</article></div>
+</section>
+      </details>
+      <details>
+        <summary><span>尚未部署 Pages 的公開 repo</span><span class="count">16 個</span></summary>
+        <p class="archive-note">這些專案目前沒有公開的 GitHub Pages 體驗頁，連結會前往原始碼 repo。</p>
+        <ul><li><a href="https://github.com/jjfishjj/0624ML-ximen" target="_blank" rel="noopener noreferrer">0624ML-ximen</a><span>尚無專案說明。</span></li>
+<li><a href="https://github.com/jjfishjj/ai-media-studio" target="_blank" rel="noopener noreferrer">ai-media-studio</a><span>尚無專案說明。</span></li>
+<li><a href="https://github.com/jjfishjj/avmapping" target="_blank" rel="noopener noreferrer">avmapping</a><span>avmapping</span></li>
+<li><a href="https://github.com/jjfishjj/campus-connect" target="_blank" rel="noopener noreferrer">campus-connect</a><span>尚無專案說明。</span></li>
+<li><a href="https://github.com/jjfishjj/campus-life-sim" target="_blank" rel="noopener noreferrer">campus-life-sim</a><span>尚無專案說明。</span></li>
+<li><a href="https://github.com/jjfishjj/code" target="_blank" rel="noopener noreferrer">code</a><span>尚無專案說明。</span></li>
+<li><a href="https://github.com/jjfishjj/daily-growth-journal" target="_blank" rel="noopener noreferrer">daily-growth-journal</a><span>尚無專案說明。</span></li>
+<li><a href="https://github.com/jjfishjj/Flutter" target="_blank" rel="noopener noreferrer">Flutter</a><span>practice</span></li>
+<li><a href="https://github.com/jjfishjj/gpt-ai-assistant" target="_blank" rel="noopener noreferrer">gpt-ai-assistant</a><span>OpenAI + LINE + Vercel = GPT AI Assistant</span></li>
+<li><a href="https://github.com/jjfishjj/ic-power-efficiency" target="_blank" rel="noopener noreferrer">ic-power-efficiency</a><span>研究 IC 晶片節能技術：Clock Gating、Power Gating、DVFS 與 AI 功耗預測</span></li>
+<li><a href="https://github.com/jjfishjj/isaac-smartsort" target="_blank" rel="noopener noreferrer">isaac-smartsort</a><span>尚無專案說明。</span></li>
+<li><a href="https://github.com/jjfishjj/jerome.github.io" target="_blank" rel="noopener noreferrer">jerome.github.io</a><span>尚無專案說明。</span></li>
+<li><a href="https://github.com/jjfishjj/nvidia-computex2026-optimizer" target="_blank" rel="noopener noreferrer">nvidia-computex2026-optimizer</a><span>Optimization toolkit for NVIDIA Vera Rubin, Nemotron 3 Ultra 550B &amp; Alpamayo 2 Super - Computex 2026</span></li>
+<li><a href="https://github.com/jjfishjj/reactclass2" target="_blank" rel="noopener noreferrer">reactclass2</a><span>尚無專案說明。</span></li>
+<li><a href="https://github.com/jjfishjj/taichi-flow-coach" target="_blank" rel="noopener noreferrer">taichi-flow-coach</a><span>尚無專案說明。</span></li>
+<li><a href="https://github.com/jjfishjj/Zero" target="_blank" rel="noopener noreferrer">Zero</a><span>尚無專案說明。</span></li></ul>
+      </details>
+    </section>
+  </main>
+
+  <footer><span>最後更新：2026-11-20 · 由專案索引工具產生</span><span><a href="https://github.com/jjfishjj/claude-projects-hub">Hub 原始碼 ↗</a></span></footer>
 </div>
-<script>
-// 卡片內的 source 連結：獨立導向 repo，不觸發外層卡片連結
-document.querySelectorAll('.repo').forEach(function (el) {
-  el.addEventListener('click', function (ev) {
-    ev.preventDefault(); ev.stopPropagation();
-    window.location.href = el.dataset.href;
-  });
-});
-</script>
 </body>
 </html>

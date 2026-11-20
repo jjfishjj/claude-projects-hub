@@ -1,6 +1,41 @@
 {
-  "_comment": "repo -> 分類與顯示覆寫。沒列到的 repo 會落到「其他」。desc 可覆寫 GitHub description。",
+  "_comment": "repo -> 分類與顯示覆寫。featured 為首頁精選的可體驗產品原型；未列到的 repo 會落到「其他」。desc 可覆寫 GitHub description。",
   "order": ["NVIDIA / GPU", "數位孿生 / Omniverse", "AI 產品 Demo", "PM / 商業提案", "工具 / Infra", "個人網站", "其他"],
+  "product_categories": ["AI 產品 Demo", "PM / 商業提案"],
+  "featured": [
+    {
+      "repo": "memolingua",
+      "title": "MemoLingua",
+      "eyebrow": "AI × 學習產品",
+      "summary": "把學習風格測驗、個人化練習、每日課表與生詞複習串成一條可體驗的學習旅程。",
+      "journey": ["學習診斷", "個人化練習", "每日課表", "間隔複習"],
+      "evidence": "頁面展示 26 張訓練卡、每日訓練課表與生詞複習本。"
+    },
+    {
+      "repo": "fluent-ai",
+      "title": "Fluent AI",
+      "eyebrow": "AI × 語言練習",
+      "summary": "以生活情境與檢定準備為入口，串接 AI 對話、發音／流利度回饋與文法建議。",
+      "journey": ["選擇情境", "開始對話", "取得回饋"],
+      "evidence": "線上頁面展示多語言、生活情境與 IELTS／TOEFL 練習模式。"
+    },
+    {
+      "repo": "lifegether",
+      "title": "LifeGether",
+      "eyebrow": "社群 × 活動服務",
+      "summary": "將探索活動、建立活動與參加報名整理成一段清楚的社群服務流程。",
+      "journey": ["選擇生活領域", "建立活動", "完成報名"],
+      "evidence": "線上原型呈現活動建立表單與報名成功回饋。"
+    },
+    {
+      "repo": "taiji-posture-demo",
+      "title": "AI 太極姿勢教練",
+      "eyebrow": "AI × 動作回饋",
+      "summary": "用瀏覽器上傳姿勢照片或影片，查看關節排列的分析方向與後續檢視流程。",
+      "journey": ["上傳影像", "姿勢分析", "檢視回饋"],
+      "evidence": "定位為工程驗證原型；頁面明示測試圖不代表拳師認證標準。"
+    }
+  ],
   "repos": {
     "cudf-game-analytics-benchmark":  { "cat": "NVIDIA / GPU" },
     "gpu-power-demo":                 { "cat": "NVIDIA / GPU" },
@@ -17,7 +52,7 @@
     "flowforge-factory-twin":         { "cat": "數位孿生 / Omniverse" },
     "fab-digital-twin":               { "cat": "數位孿生 / Omniverse", "desc": "300mm 半導體晶圓廠的參數化 OpenUSD 數位孿生，純 JSON spec 驅動，無需 GPU 或 Omniverse 授權" },
 
-    "academic-memory-lab":            { "cat": "AI 產品 Demo" },
+    "academic-memory-lab":            { "cat": "AI 產品 Demo", "desc": "學術記憶訓練互動平台：結合情境鉤子、故事編織與回想練習。" },
     "academic-memory-lab-demo":       { "cat": "AI 產品 Demo" },
     "fluent-ai":                      { "cat": "AI 產品 Demo", "desc": "語言學習 AI 產品原型" },
     "memolingua":                     { "cat": "AI 產品 Demo", "desc": "MemoLingua 記憶式語言學習平台" },
@@ -37,6 +72,6 @@
 
     "jjfishjj.github.io":             { "cat": "個人網站", "desc": "Jerome Kuo 個人首頁" },
     "jeromekuo":                      { "cat": "個人網站", "desc": "Jerome Kuo 互動式線上履歷" },
-    "claude-projects-hub":            { "cat": "工具 / Infra", "desc": "本頁本身：專案盤點與 Pages 批次部署工具" }
+    "claude-projects-hub":            { "cat": "工具 / Infra", "desc": "本頁：作品集與專案索引" }
   }
 }

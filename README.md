@@ -14,7 +14,9 @@
 | `scripts/build_hub.py` | 讀 `inventory.json` + `categories.json`，產生 `index.html` |
 | `inventory.json` | 自動產生，勿手改 |
 | `categories.json` | 手動維護：repo 的分類與顯示描述覆寫 |
-| `index.html` | 自動產生的作品集索引頁 |
+| `index.html` | 自動產生的產品作品集與專案索引頁 |
+
+首頁先展示 4 個可體驗的產品原型，再呈現其他產品案例；GPU、數位孿生與工具類專案收在可展開的研究索引中。`categories.json` 的 `featured` 欄位維護精選案例與頁面可見的使用者旅程，文案只描述線上頁面能看到的功能，不宣稱未驗證的商業成果。
 
 ## 更新流程
 
