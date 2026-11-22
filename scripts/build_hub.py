@@ -79,6 +79,11 @@ def featured_card(item, project, index):
     source_url = escape(project["repo_url"], quote=True)
     experience_url = escape(item.get("experience_url", project["pages_url"]), quote=True)
     experience_label = escape(item.get("experience_label", "體驗產品"))
+    case_url = item.get("case_url")
+    case_link = (
+        f'      <a class="text-link" href="{escape(case_url, quote=True)}">閱讀完整案例 <span aria-hidden="true">→</span></a>\n'
+        if case_url else ""
+    )
     lead_class = " featured-card--lead" if index == 0 else ""
     return f"""<article class="featured-card{lead_class}">
   <div class="featured-copy">
@@ -89,7 +94,7 @@ def featured_card(item, project, index):
     <div class="featured-links">
       <a class="button button--primary" href="{experience_url}">{experience_label} <span aria-hidden="true">↗</span></a>
       <a class="text-link" href="{source_url}" target="_blank" rel="noopener noreferrer">查看原始碼 <span aria-hidden="true">↗</span></a>
-    </div>
+{case_link}    </div>
   </div>
   <div class="journey-panel">
     <span class="journey-label">體驗流程</span>

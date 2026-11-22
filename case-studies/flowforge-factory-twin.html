@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FlowForge Factory Twin｜產品案例｜Jerome Kuo</title>
+<meta name="description" content="FlowForge Factory Twin 以瀏覽器工廠 twin 串連佈局比較、簡化產能與 AGV 物流模擬，以及 OpenUSD 工程資料檢視。">
+<meta name="theme-color" content="#f5f4ef">
+<link rel="stylesheet" href="case-studies.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+<div class="wrap">
+  <nav class="topline" aria-label="頁面導覽"><a href="../index.html">← 回到作品集首頁</a><span>CASE 02 · OPENUSD × FACTORY TWIN</span></nav>
+  <header class="hero">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">FlowForge Factory Twin</p>
+        <h1>讓工廠佈局成為可比較的流量決策。</h1>
+        <p class="lede">一個瀏覽器優先的工廠數位孿生示範，把 facility layout、簡化產能／物流模擬與 OpenUSD 場景資料放進同一條規劃旅程。</p>
+        <div class="chips" aria-label="案例特性"><span class="chip">Browser-first demo</span><span class="chip">Deterministic model</span><span class="chip">OpenUSD-ready assets</span></div>
+        <div class="actions">
+          <a class="button button--primary" href="https://jjfishjj.github.io/flowforge-factory-twin/" target="_blank" rel="noopener noreferrer">開啟 FlowForge demo ↗</a>
+          <a class="button" href="https://github.com/jjfishjj/flowforge-factory-twin" target="_blank" rel="noopener noreferrer">查看原始碼 ↗</a>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="模擬情境摘要">
+        <span class="hero-visual-label">MODELED ROUTE DISTANCE · PER UNIT</span>
+        <strong>86 m <span aria-hidden="true">→</span> 52 m</strong>
+        <p>Baseline 與 optimized 佈局的簡化模型情境比較，少 34 m 的模型路徑距離。</p>
+        <div class="visual-foot"><span>86 m · baseline</span><span>52 m · optimized</span></div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" aria-labelledby="problem-title">
+      <div class="section-head"><p class="eyebrow">THE PLANNING GAP</p><h2 id="problem-title">看得到設備，不代表看得到流量代價</h2><p>當 Assembly 與 Packaging 分隔、物料路徑交錯時，靜態 3D 佈局不容易比較移動距離、WIP、產能與 AGV 阻塞之間的取捨。</p></div>
+      <div class="grid-3">
+        <article class="card"><h3>佈局決策難比較</h3><p>同一製程順序下，layout alternative 的物流距離和擁塞可能不同，需要把情境放進同一個比較基準。</p></article>
+        <article class="card"><h3>產能受多個假設牽動</h3><p>班次、需求、cycle time、OEE 與 AGV 車隊共同影響 throughput、達成率、WIP 與瓶頸。</p></article>
+        <article class="card"><h3>規劃結果要交給工程工具</h3><p>除了瀏覽器裡的模擬畫面，還需要可檢視的 OpenUSD scene structure、variants 與設備 metadata。</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="layout-title">
+      <div class="section-head"><p class="eyebrow">SCENARIO COMPARISON</p><h2 id="layout-title">在相同流程下比較兩種佈局</h2><p>下面是產品頁的原創示意圖，協助理解路徑差異；距離數值取自公開 demo 的簡化模型，並非工廠現場量測。</p></div>
+      <figure class="figure">
+        <svg class="diagram" viewBox="0 0 900 340" role="img" aria-labelledby="layout-svg-title layout-svg-desc">
+          <title id="layout-svg-title">Baseline 與 optimized 佈局模型比較示意</title>
+          <desc id="layout-svg-desc">左側 baseline 站點分散、物料路徑較長，標示模型距離 86 公尺；右側 optimized 以較緊湊的 U 型流程縮短示意路徑，標示 52 公尺。兩者皆為模型情境，不是現場數據。</desc>
+          <rect x="8" y="8" width="430" height="320" rx="18" fill="var(--panel-soft)" stroke="var(--line)"/>
+          <rect x="462" y="8" width="430" height="320" rx="18" fill="var(--panel-soft)" stroke="var(--line)"/>
+          <text x="34" y="43" fill="var(--ink)" font-size="18" font-weight="750">BASELINE</text>
+          <text x="488" y="43" fill="var(--ink)" font-size="18" font-weight="750">OPTIMIZED · U-CELL</text>
+          <path d="M85 112 H330 V240 H105 V170 H330" fill="none" stroke="var(--warm)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 9"/>
+          <path d="M535 115 H790 V245 H570 V176 H790" fill="none" stroke="var(--accent)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <g fill="var(--panel)" stroke="var(--line)" stroke-width="2">
+            <rect x="48" y="86" width="94" height="48" rx="8"/><rect x="280" y="86" width="108" height="48" rx="8"/>
+            <rect x="67" y="216" width="108" height="48" rx="8"/><rect x="285" y="216" width="103" height="48" rx="8"/>
+            <rect x="495" y="88" width="98" height="48" rx="8"/><rect x="744" y="88" width="112" height="48" rx="8"/>
+            <rect x="520" y="220" width="110" height="48" rx="8"/><rect x="744" y="220" width="112" height="48" rx="8"/>
+          </g>
+          <g fill="var(--ink)" font-size="12" font-weight="650" text-anchor="middle">
+            <text x="95" y="115">Assembly</text><text x="334" y="115">Packaging</text><text x="121" y="245">Inspection</text><text x="336" y="245">Receiving</text>
+            <text x="544" y="117">Assembly</text><text x="800" y="117">Packaging</text><text x="575" y="249">Inspection</text><text x="800" y="249">Receiving</text>
+          </g>
+          <text x="34" y="301" fill="var(--muted)" font-size="12">模型路徑距離</text><text x="369" y="303" fill="var(--ink)" font-size="22" font-weight="800" text-anchor="end">86 m</text>
+          <text x="488" y="301" fill="var(--muted)" font-size="12">模型路徑距離</text><text x="823" y="303" fill="var(--ink)" font-size="22" font-weight="800" text-anchor="end">52 m</text>
+        </svg>
+        <div class="diagram-caption"><span>Baseline：86 m / unit</span><span>Optimized：52 m / unit</span><span>模型差異：−34 m / unit</span></div>
+      </figure>
+      <div class="callout"><strong>數值口徑：</strong>86 m → 52 m 是公開 demo 中 simplified model 的 baseline／optimized 情境輸出，不是現場實測、已驗證 ROI、節省承諾或客戶成效。</div>
+    </section>
+
+    <section class="section" aria-labelledby="journey-title">
+      <div class="section-head"><p class="eyebrow">PRODUCT JOURNEY</p><h2 id="journey-title">從 what-if 規劃到 OpenUSD 檢視</h2></div>
+      <div class="steps">
+        <article class="step"><h3>設定需求條件</h3><p>調整班次、需求、Assembly OEE 與 AGV fleet size。</p></article>
+        <article class="step"><h3>執行情境模擬</h3><p>看 throughput、attainment、WIP、bottleneck 與時間序列指標。</p></article>
+        <article class="step"><h3>比較物流策略</h3><p>切換 FIFO、nearest-job 或 zone-based dispatch，觀察 queue、blocked time 與路徑。</p></article>
+        <article class="step"><h3>檢視工程場景</h3><p>在瀏覽器 OpenUSD Studio 查看 layout variants、Scene Graph、references、payloads 與 metadata。</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="product-title">
+      <div class="section-head"><p class="eyebrow">PRODUCT &amp; ENGINEERING</p><h2 id="product-title">讓決策視圖與工程資料保持連結</h2><p>FlowForge 的核心不只是做一個 3D 看板，而是把使用者可調的規劃假設、模擬結果與 OpenUSD 場景結構放在同一個可說明的原型裡。</p></div>
+      <div class="grid-2">
+        <article class="card"><h3>瀏覽器決策層</h3><p>原生 HTML／CSS／JavaScript 與 Canvas 動畫呈現產線、輸送帶、AGV 與工件；切換 layout、需求與 fleet 後，可在簡化模型中比較輸出與交通情境。</p><div class="tag-row"><span class="tag">Baseline / Optimized</span><span class="tag">Throughput / WIP</span><span class="tag">AGV dispatch</span></div></article>
+        <article class="card"><h3>OpenUSD 工程層</h3><p>模組化 stage 以 variants、references、payloads 和 `factory:*` metadata 組成，讓站點屬性與下游工程檢視有明確結構。</p><div class="tag-row"><span class="tag">Scene Graph</span><span class="tag">VariantSet</span><span class="tag">MES tags</span></div></article>
+      </div>
+      <div class="metric-grid" aria-label="OpenUSD 場景設計特點">
+        <div class="metric"><strong>5</strong><span>可重用的 station component instances</span></div>
+        <div class="metric"><strong>2</strong><span>Baseline / Optimized layout variants</span></div>
+        <div class="metric"><strong>1</strong><span>可攜式、相對路徑 OpenUSD stage 結構</span></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="agent-title">
+      <div class="section-head"><p class="eyebrow">OPTIONAL PHYSICAL AI LOOP</p><h2 id="agent-title">把 AI 建議放在人工核准之後</h2><p>EdgeTwin AI Agent 是附加的技術展示：由模擬 twin 產生精簡 telemetry，再取得有界的 layout／派工建議；操作員明確審閱後才套用到目前 demo。</p></div>
+      <div class="grid-2">
+        <article class="card"><h3>公開 GitHub Pages：deterministic fallback</h3><p>靜態頁面可示範建議流程與 fallback，不代表每次都連到 live Nemotron，也沒有接上實際 Jetson 或工廠設備。</p></article>
+        <article class="card"><h3>Live inference：需 server-side proxy</h3><p>若啟動 Python proxy，才可由伺服器端呼叫 Nebius Token Factory 上的 NVIDIA Nemotron。API key 留在伺服器端；建議仍須由人審核，不是設備控制命令。</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="limits-title">
+      <div class="section-head"><p class="eyebrow">VALIDATION &amp; LIMITS</p><h2 id="limits-title">原型能展示流程，現場驗證仍是下一步</h2></div>
+      <div class="grid-2">
+        <article class="card"><h3>目前可檢視</h3><ul><li>瀏覽器 demo 的 layout comparison、簡化離散模擬與 AGV 情境。</li><li>公開 OpenUSD stage、variants、references／payloads 與設備 metadata。</li><li>OpenUSD CLI / stage evidence 與 Windows RTX validation checklist。</li></ul></article>
+        <article class="warning"><h3>目前不宣稱</h3><p>模型是 deterministic simplified discrete simulation，不能取代正式工業模擬或安全驗證。未接現場 MQTT／OPC UA／Jetson；RTX USD Composer／Omniverse Kit runtime 驗證仍待在相容環境完成。</p></article>
+      </div>
+      <div class="tag-row" aria-label="技術組成"><span class="tag">HTML / CSS / JavaScript</span><span class="tag">Canvas simulation</span><span class="tag">OpenUSD / USDA</span><span class="tag">Omniverse Kit Extension</span><span class="tag">Nemotron via Nebius (optional proxy)</span></div>
+    </section>
+
+    <section class="cta-panel" aria-label="開始體驗">
+      <div><p class="eyebrow">EXPLORE THE TWIN</p><h2>先跑一個情境，再看它如何成為 OpenUSD。</h2><p>在瀏覽器先比較 Baseline 與 Optimized，再進 OpenUSD Studio 檢視 Scene Graph 和 metadata；如需 RTX 驗證，請依 repo checklist 在相容環境執行。</p></div>
+      <div class="actions"><a class="button button--primary" href="https://jjfishjj.github.io/flowforge-factory-twin/" target="_blank" rel="noopener noreferrer">開啟產品 demo ↗</a><a class="button" href="https://github.com/jjfishjj/flowforge-factory-twin" target="_blank" rel="noopener noreferrer">查看原始碼 ↗</a></div>
+    </section>
+  </main>
+  <aside class="sources" aria-label="資料來源"><strong>資料來源</strong><ul><li><a href="https://jjfishjj.github.io/flowforge-factory-twin/" target="_blank" rel="noopener noreferrer">FlowForge 公開 demo</a></li><li><a href="https://github.com/jjfishjj/flowforge-factory-twin" target="_blank" rel="noopener noreferrer">GitHub README／專案原始碼</a></li><li><a href="https://github.com/jjfishjj/flowforge-factory-twin/tree/main/docs/evidence" target="_blank" rel="noopener noreferrer">OpenUSD 驗證紀錄</a></li><li><a href="https://github.com/jjfishjj/flowforge-factory-twin/blob/main/docs/windows-rtx-validation.md" target="_blank" rel="noopener noreferrer">Windows RTX 驗證清單</a></li></ul></aside>
+  <footer><span>產品案例頁 · 以公開專案內容整理</span><a href="../index.html">回作品集首頁</a></footer>
+</div>
+</body>
+</html>

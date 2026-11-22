@@ -13,10 +13,11 @@
 | `scripts/deploy-pages.sh` | 對單一 repo 開啟 Pages。`jekyll` 模式適用純 Markdown repo，`workflow` 模式適用前端 build repo |
 | `scripts/build_hub.py` | 讀 `inventory.json` + `categories.json`，產生 `index.html` |
 | `inventory.json` | 自動產生，勿手改 |
-| `categories.json` | 手動維護：repo 的分類、精選案例與顯示描述覆寫 |
+| `categories.json` | 手動維護：repo 的分類、精選案例、案例詳情頁與顯示描述覆寫 |
 | `index.html` | 自動產生的產品作品集與專案索引頁 |
+| `case-studies/*.html`、`case-studies/*.css` | 手動維護的繁中產品案例頁與共用樣式 |
 
-首頁先展示 6 個可體驗案例，包括 AI 產品原型、GPU 遊戲營運分析 Lab 與 OpenUSD 工廠數位孿生，再呈現其他產品案例；未精選的 GPU、數位孿生與工具類專案收在可展開的研究索引中。`categories.json` 的 `featured` 欄位維護精選案例、頁面可見的使用者旅程與可選的 `experience_url`，文案只描述公開頁面能看到的功能，不宣稱未驗證的商業成果。
+首頁先展示 6 個可體驗案例，包括 AI 產品原型、GPU 遊戲營運分析 Lab 與 OpenUSD 工廠數位孿生，再呈現其他產品案例；未精選的 GPU、數位孿生與工具類專案收在可展開的研究索引中。`categories.json` 的 `featured` 欄位維護精選案例、頁面可見的使用者旅程、可選的 `experience_url` 與 `case_url`。文案只描述公開頁面可驗證的功能，不宣稱已商轉或通過正式成效驗證。
 
 ## 更新流程
 

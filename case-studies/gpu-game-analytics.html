@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GPU Game Analytics Lab｜產品案例｜Jerome Kuo</title>
+<meta name="description" content="以 2,000 萬筆合成遊戲事件與 Colab T4 benchmark，說明 RAPIDS cuDF 何時適合遊戲營運分析，以及 CPU fallback 的代價。">
+<meta name="theme-color" content="#f5f4ef">
+<link rel="stylesheet" href="case-studies.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+<div class="wrap">
+  <nav class="topline" aria-label="頁面導覽"><a href="../index.html">← 回到作品集首頁</a><span>CASE 01 · RAPIDS × GAME ANALYTICS</span></nav>
+  <header class="hero">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">GPU Game Analytics Lab</p>
+        <h1>GPU 不是每個分析步驟的加速器。</h1>
+        <p class="lede">用遊戲營運分析回答更實際的問題：這段工作真的適合 GPU 嗎？以公開 benchmark 和互動決策 Lab，拆解 fallback、資料搬移與工作負載規模的影響。</p>
+        <div class="chips" aria-label="案例特性"><span class="chip">20M 合成事件</span><span class="chip">Colab T4 已紀錄量測</span><span class="chip">Portfolio MVP</span></div>
+        <div class="actions">
+          <a class="button button--primary" href="https://huggingface.co/spaces/junbin666/cudf-game-analytics-benchmark" target="_blank" rel="noopener noreferrer">開啟互動決策 Lab ↗</a>
+          <a class="button" href="https://colab.research.google.com/github/jjfishjj/cudf-game-analytics-benchmark/blob/main/notebooks/game_analytics_benchmark.ipynb" target="_blank" rel="noopener noreferrer">在 Colab 重跑 ↗</a>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="案例摘要">
+        <span class="hero-visual-label">THE QUESTION</span>
+        <strong>先判斷 workload fit</strong>
+        <p>不是「GPU 快幾倍？」而是「計算夠大、路徑夠原生嗎？」</p>
+        <div class="visual-foot"><span>3 個營運分析情境</span><span>同一 Colab T4 環境</span></div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" aria-labelledby="problem-title">
+      <div class="section-head"><p class="eyebrow">PRODUCT FRAMING</p><h2 id="problem-title">從「搬上 GPU」改成「逐段證明值得搬」</h2><p>資料團隊若直接把 pandas 分析交給 GPU 相容層，部分操作可能仍回到 CPU；小型結果也未必能攤平啟動與資料傳輸成本。</p></div>
+      <div class="grid-3">
+        <article class="card"><h3>工作負載不一樣</h3><p>RFM、cohort 留存和付費漏斗的操作型態不同，不該把一個 benchmark 結論套到整條分析流程。</p></article>
+        <article class="card"><h3>相容不等於原生</h3><p>`cudf.pandas` 讓既有程式先行試跑，但部分操作會 fallback；必須追查實際計算路徑。</p></article>
+        <article class="card"><h3>PM 需要可行動的結論</h3><p>不只比較秒數，還要說明何時先留在 CPU、何時值得改寫、如何用同機重測。</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="results-title">
+      <div class="section-head"><p class="eyebrow">MEASURED EVIDENCE</p><h2 id="results-title">20M 筆資料：GPU 並沒有每次勝出</h2><p>公開 notebook 記錄同一 Colab T4 環境中的 pandas CPU baseline 與 `cudf.pandas` GPU run。秒數愈短愈好；此處呈現的是分析步驟的量測值，不是端到端服務 SLA。</p></div>
+      <figure class="figure">
+        <p class="figure-title">公開 benchmark · 已紀錄時間</p>
+        <div class="legend" aria-hidden="true"><span><i class="swatch"></i>pandas CPU</span><span><i class="swatch swatch--warm"></i>cuDF pandas backend</span></div>
+        <div class="benchmark-list" aria-label="CPU 與 GPU 執行時間比較">
+          <div class="benchmark-item">
+            <div class="benchmark-top"><span>RFM 分群</span><span>GPU 慢約 1.7×</span></div>
+            <div class="bar-line"><span>CPU</span><div class="bar-track"><span class="bar-fill" style="width:60%"></span></div><strong>0.39 s</strong></div>
+            <div class="bar-line"><span>cuDF</span><div class="bar-track"><span class="bar-fill bar-fill--gpu" style="width:100%"></span></div><strong>0.65 s</strong></div>
+          </div>
+          <div class="benchmark-item">
+            <div class="benchmark-top"><span>留存 cohort</span><span>GPU 慢約 1.6×</span></div>
+            <div class="bar-line"><span>CPU</span><div class="bar-track"><span class="bar-fill" style="width:61%"></span></div><strong>0.42 s</strong></div>
+            <div class="bar-line"><span>cuDF</span><div class="bar-track"><span class="bar-fill bar-fill--gpu" style="width:100%"></span></div><strong>0.69 s</strong></div>
+          </div>
+          <div class="benchmark-item">
+            <div class="benchmark-top"><span>付費漏斗（Python `set`）</span><span>接近持平</span></div>
+            <div class="bar-line"><span>CPU</span><div class="bar-track"><span class="bar-fill" style="width:100%"></span></div><strong>4.11 s</strong></div>
+            <div class="bar-line"><span>cuDF</span><div class="bar-track"><span class="bar-fill bar-fill--gpu" style="width:88%"></span></div><strong>3.63 s</strong></div>
+          </div>
+        </div>
+        <figcaption>每個情境的長條以該情境較慢的測值為 100%，只作同列比較。資料為合成遊戲事件；公開數字來自 notebook 中已記錄的 Colab T4 run。</figcaption>
+      </figure>
+      <div class="callout"><strong>關鍵洞察：</strong>工作量大、而且運算能留在原生 GPU 路徑，才有機會抵銷 GPU 啟動與搬移成本。相容層並不代表每個 operation 都在 GPU 上執行。</div>
+    </section>
+
+    <section class="section" aria-labelledby="why-title">
+      <div class="section-head"><p class="eyebrow">WHY IT HAPPENS</p><h2 id="why-title">把「較慢」拆成可處理的原因</h2></div>
+      <div class="grid-2">
+        <article class="card"><h3>RFM：fallback 與資料搬移</h3><p>`qcut`、`rank`、`np.select` 等操作可能離開 GPU 原生路徑，CPU 計算及 host/device 間的搬移成本會抵銷收益。</p></article>
+        <article class="card"><h3>留存：結果太小</h3><p>`nunique` 可用 GPU，但這個情境只產生約 90 個群組；小輸出可能難以攤平 kernel launch 與搬移開銷。</p></article>
+        <article class="card"><h3>漏斗：Python 物件邊界</h3><p>以 Python `set` 做交集會讓結果回到 host 端 Python 物件，GPU 難以持續承擔主要計算。</p></article>
+        <article class="card"><h3>下一步：原生改寫，再同機量測</h3><p>可以嘗試以 GPU-native groupby、merge、sort 等路徑重寫；但改寫本身不等於已證明變快，仍要跑同一資料與硬體的對照。</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="journey-title">
+      <div class="section-head"><p class="eyebrow">PRODUCT JOURNEY</p><h2 id="journey-title">由 benchmark 走到 GPU-fit 決策</h2><p>Lab 將工程量測轉成 PM 與分析工程師可以討論的下一步，不把「GPU」當成預設答案。</p></div>
+      <div class="steps">
+        <article class="step"><h3>選擇分析情境</h3><p>以 RFM、留存、漏斗切入常見遊戲營運問題。</p></article>
+        <article class="step"><h3>閱讀已記錄證據</h3><p>同列比較 CPU 與 cuDF 執行時間，辨識 fallback 線索。</p></article>
+        <article class="step"><h3>取得初步建議</h3><p>fallback-heavy／小輸出情境先留在 CPU，或先考慮原生改寫。</p></article>
+        <article class="step"><h3>回到 Colab 驗證</h3><p>在自己的 runtime 重跑，才決定是否將工作負載交給 GPU。</p></article>
+      </div>
+      <div class="callout"><strong>Lab 的邊界：</strong>Hugging Face Space 是靜態展示，呈現已紀錄測值與 deterministic 決策規則；它不會在頁面內執行 cuDF 或產生新的 GPU benchmark。</div>
+    </section>
+
+    <section class="section" aria-labelledby="scope-title">
+      <div class="section-head"><p class="eyebrow">SCOPE &amp; NEXT</p><h2 id="scope-title">可驗證的結論，以及尚未宣稱的部分</h2></div>
+      <div class="grid-2">
+        <article class="card"><h3>目前可支持</h3><ul><li>20M 合成事件中，RFM 與留存的已記錄 cuDF pandas run 較慢；Python-set 漏斗接近持平。</li><li>公開 notebook 可用於 Colab T4 重跑並檢視計時流程。</li><li>GPU-fit Lab 將 workload 特徵與下一步建議做成互動說明。</li></ul></article>
+        <article class="warning"><h3>目前不宣稱</h3><p>50M native sort/groupby/merge 尚未公開完整成對 CPU/GPU 數字；不宣稱它已加速。合成資料與單一 Colab T4 環境也不能代表客戶系統、正式 SLA、成本節省或 ROI。</p></article>
+      </div>
+      <div class="tag-row" aria-label="技術組成"><span class="tag">RAPIDS cuDF</span><span class="tag">cudf.pandas</span><span class="tag">pandas / NumPy</span><span class="tag">Google Colab T4</span><span class="tag">HTML decision lab</span></div>
+    </section>
+
+    <section class="cta-panel" aria-label="開始體驗">
+      <div><p class="eyebrow">TRY IT YOURSELF</p><h2>先重跑，再決定要不要上 GPU。</h2><p>打開公開 Lab 看已記錄證據，或直接執行 Colab notebook，使用你的資料與相同硬體條件驗證。</p></div>
+      <div class="actions"><a class="button button--primary" href="https://huggingface.co/spaces/junbin666/cudf-game-analytics-benchmark" target="_blank" rel="noopener noreferrer">開啟互動 Lab ↗</a><a class="button" href="https://github.com/jjfishjj/cudf-game-analytics-benchmark" target="_blank" rel="noopener noreferrer">查看原始碼 ↗</a></div>
+    </section>
+  </main>
+  <aside class="sources" aria-label="資料來源"><strong>資料來源</strong><ul><li><a href="https://huggingface.co/spaces/junbin666/cudf-game-analytics-benchmark" target="_blank" rel="noopener noreferrer">Hugging Face Space 與已記錄測值</a></li><li><a href="https://github.com/jjfishjj/cudf-game-analytics-benchmark" target="_blank" rel="noopener noreferrer">GitHub README／benchmark 原始碼</a></li><li><a href="https://colab.research.google.com/github/jjfishjj/cudf-game-analytics-benchmark/blob/main/notebooks/game_analytics_benchmark.ipynb" target="_blank" rel="noopener noreferrer">公開 Colab notebook</a></li></ul></aside>
+  <footer><span>產品案例頁 · 以公開專案內容整理</span><a href="../index.html">回作品集首頁</a></footer>
+</div>
+</body>
+</html>

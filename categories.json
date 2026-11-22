@@ -10,6 +10,7 @@
       "summary": "用遊戲營運分析拆解 GPU 加速何時有效、何時會因 CPU fallback 變慢；以實測案例與互動 Lab 說明加速的適用邊界。",
       "journey": ["認識 RFM／留存／漏斗情境", "檢視 CPU 與 GPU 實測", "找出 fallback 瓶頸", "進入互動決策 Lab"],
       "evidence": "公開案例以 2,000 萬筆合成事件說明：RFM 與留存流程未必適合 GPU；GPU-native 改寫則展示另一條最佳化路徑。",
+      "case_url": "case-studies/gpu-game-analytics.html",
       "experience_url": "https://huggingface.co/spaces/junbin666/cudf-game-analytics-benchmark",
       "experience_label": "體驗互動 Lab"
     },
@@ -19,7 +20,8 @@
       "eyebrow": "OpenUSD × 工廠數位孿生",
       "summary": "在瀏覽器比較工廠佈局、產能與 AGV 物流情境，再於 OpenUSD Studio 檢視可供下游工程工具使用的場景結構。",
       "journey": ["切換產線佈局", "調整需求與設備條件", "模擬產能和 AGV 物流", "檢視 OpenUSD variants 與 metadata"],
-      "evidence": "公開 demo 可操作 baseline／optimized 方案、產能與物流指標、AGV 調度策略，以及 OpenUSD Scene Graph、references、payloads 與設備 metadata。"
+      "evidence": "公開 demo 可操作 baseline／optimized 方案、產能與物流指標、AGV 調度策略，以及 OpenUSD Scene Graph、references、payloads 與設備 metadata。",
+      "case_url": "case-studies/flowforge-factory-twin.html"
     },
     {
       "repo": "memolingua",
